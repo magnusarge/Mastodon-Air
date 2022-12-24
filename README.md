@@ -5,4 +5,6 @@ One of the standout features of Mastodon Air is its enhanced text area for posti
 
 Whether you're a Mastodon newcomer or a seasoned user, Mastodon Air is sure to improve your experience on the platform. Give it a try and see for yourself how much more enjoyable Mastodon can be!
 
+manifest.json in the root of project is for Firefox. Chrome's manifest resides in masto-air directory.
+
 https://arge.ee/mastodon-air
