@@ -1,0 +1,9 @@
+.theme-mastodon-light.layout-multiple-columns #mastodon .column .scrollable {
+    border-right: 1px solid whitesmoke !important;
+}
+.layout-multiple-columns #mastodon .drawer__header, .drawer__inner {
+    border: 0 !important;
+}
+.layout-multiple-columns #mastodon .reply-indicator {
+    margin-bottom: 24px !important;
+}

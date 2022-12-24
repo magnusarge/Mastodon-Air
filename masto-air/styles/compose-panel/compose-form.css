@@ -1,0 +1,71 @@
+/** form.compose-form */
+#mastodon .compose-form__autosuggest-wrapper,
+#mastodon .compose-form__buttons-wrapper {
+    background: white !important;
+    border-color: whitesmoke !important;
+}
+.privacy-dropdown.active .privacy-dropdown__value.active {
+    background: whitesmoke !important;
+}
+#mastodon .compose-form .compose-form__warning {
+    background: aliceblue !important;
+    border-radius: 12px !important;
+}
+#mastodon .autosuggest-textarea__textarea,
+#mastodon .compose-form__autosuggest-wrapper,
+#mastodon .compose-form__buttons-wrapper,
+#mastodon .reply-indicator {
+    border-radius: 24px !important;
+}
+#mastodon .autosuggest-textarea__textarea,
+#mastodon .spoiler-input__input,
+#mastodon .reply-indicator {
+    font-size: 18px !important;
+}
+#mastodon .compose-form__autosuggest-wrapper {
+    border-bottom: 0;
+}
+#mastodon .autosuggest-textarea__textarea,
+#mastodon .compose-form__autosuggest-wrapper {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-width: 2px !important;
+}
+#mastodon .compose-form__buttons-wrapper {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-width: 2px !important;
+}
+#mastodon .language-dropdown__dropdown,
+#mastodon .privacy-dropdown__dropdown,
+#mastodon .emoji-picker-dropdown__menu {
+    z-index: 1200 !important;
+}
+#mastodon .emoji-picker-dropdown {
+    top: 12px !important;
+    right: 12px !important;
+}
+#mastodon .autosuggest-textarea__textarea {
+    padding: 16px !important;
+    padding-right: 40px !important;
+    min-height: 180px !important;
+}
+#mastodon .spoiler-input__input {
+    padding: 16px !important;
+    border-radius: 24px !important;
+    margin-top: -12px !important;
+}
+@media screen and (max-width: 1360px) {
+    #mastodon .autosuggest-textarea__textarea {
+        padding: 12px !important;
+        padding-right: 40px !important;
+        font-size: 16px !important;
+    }
+}
+@media screen and (max-width: 1260px) {
+    #mastodon .autosuggest-textarea__textarea {
+        padding: 10px !important;
+        padding-right: 40px !important;
+        font-size: 15px !important;
+    }
+}

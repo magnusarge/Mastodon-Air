@@ -1,0 +1,220 @@
+#mastodon .ui {
+  margin-top: 12px !important;
+}
+#mastodon .button,
+#mastodon .account__avatar {
+  border-radius: 999px !important;
+}
+#mastodon .status__content,
+#mastodon .navigation-bar a {
+  font-size: 18px !important;
+  line-height: 28px !important;
+  font-weight: normal !important;
+}
+#mastodon .button {
+  padding: 12px 24px !important;
+}
+#mastodon .column-header {
+  border: 0 !important;
+}
+#mastodon .column-link {
+  font-size: 20px !important;
+  padding: 18px !important;
+}
+#mastodon .column-link__icon {
+  margin-right: 16px !important;
+}
+#mastodon .compose-form__poll-wrapper .button.button-secondary {
+  color: white !important;
+}
+.theme-mastodon-light .tabs-bar__wrapper,
+.theme-mastodon-light .column-header__collapsible-inner {
+  background: white !important;
+}
+#mastodon .account__section-headline,
+#mastodon .notification__filter-bar,
+#mastodon .notification__filter-bar button {
+  background: none !important;
+}
+body.theme-mastodon-light,
+#mastodon hr,
+.theme-mastodon-light .columns-area__panels__pane--navigational .navigation-panel,
+.theme-mastodon-light .ui__header,
+.theme-mastodon-light .column-inline-form,
+.theme-mastodon-light .column>.scrollable,
+.theme-mastodon-light .error-column,
+.theme-mastodon-light .getting-started,
+.theme-mastodon-light .regeneration-indicator {
+  background: white !important;
+  border: 0 !important;
+}
+#mastodon .notification__filter-bar {
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+.theme-mastodon-light #mastodon .dismissable-banner {
+  margin-top: 18px !important;
+  margin-bottom: 18px !important;
+  border-radius: 12px !important;
+  background: aliceblue !important;
+  border: none !important;
+}
+#mastodon .focusable:focus {
+  background: aliceblue !important;
+  border-radius: 12px !important;
+}
+#mastodon .reply-indicator {
+  margin-bottom: 24px;
+  border-color: whitesmoke;
+}
+#mastodon .setting-text {
+  font-size: 18px !important;
+  border-radius: 12px !important;
+}
+#mastodon .icon-button.star-icon.active,
+#mastodon .notification__favourite-icon-wrapper .star-icon,
+#mastodon .icon-button.star-icon.active {
+  color: #ffb300 !important;
+}
+#mastodon .icon-button.bookmark-icon.active {
+  color: #ff5050 !important;
+}
+#mastodon .icon-with-badge__badge {
+  background: #ff5050 !important;
+}
+#mastodon .status-card,
+.theme-mastodon-light #mastodon .column-header__collapsible-inner {
+  border-radius: 12px !important;
+  border-color: whitesmoke !important;
+}
+.theme-mastodon-light #mastodon a.status-card:hover {
+  background: aliceblue !important;
+  border-color: aliceblue !important;
+  background-color: aliceblue !important;
+}
+#mastodon article,
+#mastodon .scrollable .status__wrapper,
+#mastodon .scrollable .focusable.detailed-status__wrapper {
+  margin-bottom: 24px !important;
+}
+#mastodon .scrollable .focusable.detailed-status__wrapper {
+  background-color: whitesmoke !important;
+}
+.theme-mastodon-light #mastodon .status,
+.theme-mastodon-light #mastodon .focusable.detailed-status__wrapper {
+  border-radius: 12px !important;
+  border-color: whitesmoke !important;
+  background-position: center !important;
+}
+.theme-mastodon-light #mastodon .detailed-status__action-bar {
+  border-color: whitesmoke !important;
+}
+#mastodon .poll__input:active,
+#mastodon .poll__input:focus,
+#mastodon .poll__input:hover {
+  border-width: 0 !important;
+}
+#mastodon .button.button-secondary:active,
+#mastodon .button.button-secondary:focus,
+#mastodon .button.button-secondary:hover {
+  border: none !important;
+  color: white !important;
+}
+#mastodon .poll .button {
+  height: 46px !important;
+}
+#mastodon .column-back-button,
+#mastodon .column-header {
+  border: none !important;
+}
+#mastodon .account__header__bio .account__header__fields {
+  background: aliceblue !important;
+  border-radius: 12px !important;
+}
+#mastodon .account__header__bio .account__header__fields .verified:last-child {
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+}
+#mastodon .account__header__bio .account__header__fields .verified,
+#mastodon .account__header__fields .verified,
+#mastodon .account__header__tabs__buttons .icon-button {
+  border: none !important;
+}
+.theme-mastodon-light #mastodon .detailed-status__action-bar {
+  border-top: none !important;
+  border-radius: 12px !important;
+}
+.theme-mastodon-light #mastodon .focusable:focus .detailed-status,
+.theme-mastodon-light #mastodon .focusable:focus .detailed-status__action-bar,
+.theme-mastodon-light #mastodon .detailed-status,
+.theme-mastodon-light #mastodon .detailed-status__action-bar {
+  background: none !important;
+}
+#mastodon .column-link--logo,
+#mastodon .ui__header__logo {
+background-repeat: no-repeat !important;
+  background-size: 120px !important;
+  padding: 0 !important;
+  width: 200px !important;
+  height: 50px !important;
+  background-position: 20px 12px;
+}
+#mastodon .column-link--logo svg,
+#mastodon .ui__header__logo svg {
+  visibility: hidden !important;
+  display: none !important;
+}
+#mastodon .ui__header__logo {
+  height: 50px !important;
+  margin: 24px 18px !important;
+}
+#mastodon .columns-area__panels__main {
+  padding: 0 24px !important;
+}
+.theme-mastodon-light #mastodon .story:active,
+.theme-mastodon-light #mastodon .story:focus,
+.theme-mastodon-light #mastodon .story:hover {
+  background-color: aliceblue !important;
+}
+.theme-mastodon-light #mastodon .story {
+  border-bottom: none !important;
+  background-color: transparent !important;
+  border-radius: 12px !important;
+}
+.theme-mastodon-light #mastodon .story__thumbnail__preview,
+.theme-mastodon-light #mastodon .story__thumbnail img {
+  border-radius: 12px !important;
+}
+.theme-mastodon-light #mastodon .scrollable .account-card {
+  background: aliceblue !important;
+}
+.theme-mastodon-light #mastodon .account-card {
+  border-radius: 12px !important;
+}
+.theme-mastodon-light #mastodon .account-card__header img {
+  background-color: transparent !important;
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+}
+.theme-mastodon-light #mastodon .account-card__header {
+  padding: 0 !important;
+}
+.theme-mastodon-light #mastodon .trends__item {
+  border: 0 !important;
+}
+.theme-mastodon-light #mastodon .getting-started__trends h4 {
+  border-color: whitesmoke !important;
+  border-width: 2px !important;
+}
+
+.theme-mastodon-light #mastodon .column-header__wrapper.active {
+  box-shadow: none !important;
+}
+.theme-mastodon-light #mastodon .column-header__wrapper.active::before {
+  background: none !important;
+}
+
+
+
+
+

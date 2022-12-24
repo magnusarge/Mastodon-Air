@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Mastodon Air",
+  "version": "2.0.7",
+  "description": "Mastodon light theme.",
+  "icons": {
+    "48": "masto-air/images/icon48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "css": ["masto-air/styles/styles.css",
+                "masto-air/styles/multi-column.css",
+                "masto-air/styles/colors.css",
+                "masto-air/styles/flex-columns/column-inner.css",
+                "masto-air/styles/compose-panel/compose-panel.css",
+                "masto-air/styles/compose-panel/compose-form.css",
+                "masto-air/styles/compose-panel/search.css",
+                "masto-air/styles/compose-panel/navigation-bar.css"]
+    }
+  ]
+}
