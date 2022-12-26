@@ -1,13 +1,13 @@
 
-
 #mastodon .search {
     margin: 10px 18px 24px !important;
 }
-.theme-mastodon-light .search__input {
+.theme-mastodon-light #mastodon .search__input {
     background: whitesmoke !important;
+    border-color: whitesmoke !important;
 }
 #mastodon .search__input {
     font-size: 18px !important;
     border-radius: 999px !important;
-    border-color: whitesmoke !important;
+    
 }

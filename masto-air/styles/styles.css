@@ -59,7 +59,7 @@ body.theme-mastodon-light,
   background: aliceblue !important;
   border: none !important;
 }
-#mastodon .focusable:focus {
+.theme-mastodon-light #mastodon .focusable:focus {
   background: aliceblue !important;
   border-radius: 12px !important;
 }
@@ -83,7 +83,8 @@ body.theme-mastodon-light,
   background: #ff5050 !important;
 }
 #mastodon .status-card,
-.theme-mastodon-light #mastodon .column-header__collapsible-inner {
+.theme-mastodon-light #mastodon .column-header__collapsible-inner,
+.theme-mastodon-light #mastodon .column-header__wrapper .announcements {
   border-radius: 12px !important;
   border-color: whitesmoke !important;
 }
@@ -101,7 +102,8 @@ body.theme-mastodon-light,
   background-color: whitesmoke !important;
 }
 .theme-mastodon-light #mastodon .status,
-.theme-mastodon-light #mastodon .focusable.detailed-status__wrapper {
+.theme-mastodon-light #mastodon .focusable.detailed-status__wrapper,
+.theme-mastodon-light #mastodon .notification.notification-follow.focusable .account {
   border-radius: 12px !important;
   border-color: whitesmoke !important;
   background-position: center !important;
@@ -109,19 +111,35 @@ body.theme-mastodon-light,
 .theme-mastodon-light #mastodon .detailed-status__action-bar {
   border-color: whitesmoke !important;
 }
+#mastodon .poll__input,
 #mastodon .poll__input:active,
 #mastodon .poll__input:focus,
 #mastodon .poll__input:hover {
+  border-width: 1px !important;
+  border-radius: 12px !important;
+  border-color: #007acc !important;
+}
+#mastodon .poll__input.active {
+  border-color: #6060FF !important;
+  background: #6060FF !important;
+}
+#mastodon .poll .button {
+  height: 46px !important;
   border-width: 0 !important;
+  color: white !important;
+}
+#mastodon .poll__chart {
+  background: #6060FF !important;
+  opacity: 0.5 !important;
+}
+#mastodon .poll__chart.leading {
+  opacity: 1 !important;
 }
 #mastodon .button.button-secondary:active,
 #mastodon .button.button-secondary:focus,
 #mastodon .button.button-secondary:hover {
   border: none !important;
   color: white !important;
-}
-#mastodon .poll .button {
-  height: 46px !important;
 }
 #mastodon .column-back-button,
 #mastodon .column-header {
@@ -207,11 +225,29 @@ background-repeat: no-repeat !important;
   border-width: 2px !important;
 }
 
-.theme-mastodon-light #mastodon .column-header__wrapper.active {
+#mastodon .column-header__wrapper.active {
   box-shadow: none !important;
 }
-.theme-mastodon-light #mastodon .column-header__wrapper.active::before {
+#mastodon .column-header__wrapper.active::before {
   background: none !important;
+}
+
+#mastodon .audio-player,
+#mastodon .compose-form .spoiler-input__input,
+#mastodon .compose-form__autosuggest-wrapper,
+#mastodon .compose-form__poll-wrapper select,
+#mastodon .poll__option input[type="text"],
+#mastodon .report-dialog-modal__textarea,
+#mastodon .setting-text {
+  border: 2px solid whitesmoke !important;
+  border-radius: 999px !important;
+  padding: 12px !important;
+}
+
+#mastodon .compose-form__poll-wrapper,
+#mastodon .compose-form__poll-wrapper .poll__footer {
+  border-top-color: whitesmoke !important;
+  border-width: 2px !important;
 }
 
 
