@@ -16,7 +16,8 @@
                 "masto-air/styles/compose-panel/compose-panel.css",
                 "masto-air/styles/compose-panel/compose-form.css",
                 "masto-air/styles/compose-panel/search.css",
-                "masto-air/styles/compose-panel/navigation-bar.css"]
+                "masto-air/styles/compose-panel/navigation-bar.css",
+                "masto-air/styles/main-panel/scrollable.css"]
     }
   ]
 }

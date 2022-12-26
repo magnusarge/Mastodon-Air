@@ -4,6 +4,18 @@
     background: white !important;
     border-color: whitesmoke !important;
 }
+#mastodon .poll__option input[type="text"],
+#mastodon .compose-form .spoiler-input__input,
+#mastodon .compose-form__autosuggest-wrapper,
+#mastodon .compose-form__poll-wrapper select {
+  border: 2px solid whitesmoke !important;
+  border-radius: 999px !important;
+  padding: 12px !important;
+}
+#mastodon .setting-text__wrapper {
+    background: none !important;
+    border: 0 !important;
+}
 .privacy-dropdown.active .privacy-dropdown__value.active {
     background: whitesmoke !important;
 }
@@ -23,7 +35,7 @@
     font-size: 18px !important;
 }
 #mastodon .compose-form__autosuggest-wrapper {
-    border-bottom: 0;
+    border-bottom: 0 !important;
 }
 #mastodon .autosuggest-textarea__textarea,
 #mastodon .compose-form__autosuggest-wrapper {
@@ -54,6 +66,11 @@
     padding: 16px !important;
     border-radius: 24px !important;
     margin-top: -12px !important;
+}
+#mastodon .compose-form__poll-wrapper,
+#mastodon .compose-form__poll-wrapper .poll__footer {
+  border-top-color: whitesmoke !important;
+  border-width: 2px !important;
 }
 @media screen and (max-width: 1360px) {
     #mastodon .autosuggest-textarea__textarea {

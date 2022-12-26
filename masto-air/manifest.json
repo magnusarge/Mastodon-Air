@@ -22,7 +22,8 @@
                 "styles/compose-panel/compose-panel.css",
                 "styles/compose-panel/compose-form.css",
                 "styles/compose-panel/search.css",
-                "styles/compose-panel/navigation-bar.css"]
+                "styles/compose-panel/navigation-bar.css",
+                "styles/main-panel/scrollable.css"]
       }
     ]
 }

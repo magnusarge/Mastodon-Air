@@ -28,6 +28,7 @@ Default purple color: #6364FF
 #mastodon .link-button,
 #mastodon .status__content__read-more-button {
   color: #6060FF !important;
+  background: none !important;
 }
 /*#mastodon .icon-button,
 #mastodon .text-icon-button,*/

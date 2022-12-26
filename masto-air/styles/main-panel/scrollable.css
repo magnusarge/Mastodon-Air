@@ -1,0 +1,128 @@
+/* Main column .scrollable */
+#mastodon .column > .scrollable {
+    background: none !important;
+}
+/* Explore/News */
+#mastodon .story:active,
+#mastodon .story:focus,
+#mastodon .story:hover {
+  background-color: #282C37 !important;
+}
+.theme-mastodon-light #mastodon .story:active,
+.theme-mastodon-light #mastodon .story:focus,
+.theme-mastodon-light #mastodon .story:hover {
+  background-color: aliceblue !important;
+}
+#mastodon .story {
+  border-bottom: none !important;
+  background-color: transparent !important;
+  border-radius: 12px !important;
+}
+#mastodon .story__thumbnail__preview,
+#mastodon .story__thumbnail img {
+  border-radius: 12px !important;
+}
+/* Poll button */
+#mastodon .compose-form__poll-wrapper .button.button-secondary {
+    color: white !important;
+}
+/* Dismissable banner */
+#mastodon .dismissable-banner {
+    margin-top: 18px !important;
+    margin-bottom: 18px !important;
+    border-radius: 12px !important;
+    border: none !important;
+}
+.theme-mastodon-light #mastodon .dismissable-banner {
+    background: aliceblue !important;
+}
+/* Focusable container */
+#mastodon .focusable:focus {
+    border-radius: 12px !important;
+}
+.theme-mastodon-light #mastodon .focusable:focus {
+    background: aliceblue !important;
+}
+/* Favourites star */
+#mastodon .icon-button.star-icon.active,
+#mastodon .notification__favourite-icon-wrapper .star-icon,
+#mastodon .icon-button.star-icon.active {
+  color: #ffb300 !important;
+}
+
+#mastodon .status-card,
+#mastodon .column-header__collapsible-inner,
+#mastodon .column-header__wrapper .announcements {
+  border-radius: 12px !important;
+}
+.theme-mastodon-light #mastodon .status-card,
+.theme-mastodon-light #mastodon .column-header__collapsible-inner,
+.theme-mastodon-light #mastodon .column-header__wrapper .announcements {
+  border-color: whitesmoke !important;
+}
+.theme-mastodon-light #mastodon a.status-card:hover {
+  background: aliceblue !important;
+  border-color: aliceblue !important;
+  background-color: aliceblue !important;
+}
+#mastodon article,
+#mastodon .scrollable .status__wrapper,
+#mastodon .scrollable .focusable.detailed-status__wrapper {
+  margin-bottom: 24px !important;
+}
+
+#mastodon .scrollable .focusable.detailed-status__wrapper {
+    background-color: #282C37 !important;
+}
+.theme-mastodon-light #mastodon .scrollable .focusable.detailed-status__wrapper {
+  background-color: whitesmoke !important;
+}
+
+#mastodon .status,
+#mastodon .focusable.detailed-status__wrapper,
+#mastodon .notification.notification-follow.focusable .account {
+  border-radius: 12px !important;
+  /*border-color: whitesmoke !important;*/
+  background-position: center !important;
+}
+.theme-mastodon-light #mastodon .status,
+.theme-mastodon-light #mastodon .focusable.detailed-status__wrapper,
+.theme-mastodon-light #mastodon .notification.notification-follow.focusable .account {
+  border-color: whitesmoke !important;
+}
+.theme-mastodon-light #mastodon .detailed-status__action-bar {
+  border-color: whitesmoke !important;
+}
+
+#mastodon .column-back-button,
+#mastodon .column-header {
+  border: none !important;
+  background: none !important;
+}
+#mastodon .account__header {
+    border-radius: 12px !important;
+}
+#mastodon .account__header__bar {
+    border-bottom: none;
+}
+#mastodon .account__header__bio .account__header__fields {
+  background: aliceblue !important;
+  border-radius: 12px !important;
+}
+#mastodon .account__header__bio .account__header__fields .verified:last-child {
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+}
+#mastodon .account__header__bio .account__header__fields .verified,
+#mastodon .account__header__fields .verified,
+#mastodon .account__header__tabs__buttons .icon-button {
+  border: none !important;
+}
+#mastodon .column-link,
+#mastodon .column-inline-form,
+#mastodon .column-link__badge,
+#mastodon .column-subheading,
+#mastodon .empty-column-indicator,
+#mastodon .follow_requests-unlocked_explanation {
+  background: none !important;
+}
