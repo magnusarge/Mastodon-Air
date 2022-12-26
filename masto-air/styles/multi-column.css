@@ -7,3 +7,11 @@
 .layout-multiple-columns #mastodon .reply-indicator {
     margin-bottom: 24px !important;
 }
+.layout-multiple-columns #mastodon .getting-started,
+.layout-multiple-columns #mastodon .getting-started__wrapper,
+.layout-multiple-columns #mastodon .drawer__inner,
+.layout-multiple-columns #mastodon .drawer__header,
+.layout-multiple-columns #mastodon .drawer__inner__mastodon {
+    background: none !important;
+}
+
