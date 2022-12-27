@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Mastodon Air",
-  "version": "2.0.8",
-  "description": "Mastodon light theme.",
+  "description": "Mastodon clean theme.",
+  "version": "2.0.9",
   "icons": {
     "48": "masto-air/images/icon48.png"
   },

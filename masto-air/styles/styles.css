@@ -62,11 +62,7 @@ body.theme-mastodon-light,
   border-right: 0 !important;
 }
 
-/* Compose form reply text */
-#mastodon .reply-indicator {
-  margin-bottom: 24px;
-  border-color: whitesmoke;
-}
+
 #mastodon .setting-text {
   font-size: 18px !important;
   border-radius: 12px !important;
