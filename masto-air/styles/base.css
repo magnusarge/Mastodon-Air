@@ -1,0 +1,374 @@
+body.air #mastodon .ui {
+    margin-top: 12px;
+}
+body.air #mastodon .button {
+    border-radius: 999px;
+    padding: 12px 24px;
+}
+body.air #mastodon .navigation-panel hr {
+    visibility: hidden;
+    display: none;
+}
+body.air #mastodon .column-header,
+body.air #mastodon .button.button-tertiary,
+body.air #mastodon .button.button-tertiary:active,
+body.air #mastodon .button.button-tertiary:focus,
+body.air #mastodon .button.button-tertiary:hover,
+body.air #mastodon hr,
+body.air #mastodon .columns-area__panels__pane--navigational .navigation-panel,
+body.air #mastodon .ui__header,
+body.air #mastodon .column-inline-form,
+body.air #mastodon .column>.scrollable,
+body.air #mastodon .error-column,
+body.air #mastodon .getting-started,
+body.air #mastodon .regeneration-indicator,
+body.air #mastodon .trends__item {
+    border: none;
+}
+body.air #mastodon .account__avatar {
+    border-radius: 999px;
+}
+body.air #mastodon .status__content,
+body.air #mastodon .navigation-bar a {
+    line-height: 28px;
+    font-weight: normal;
+}
+body.air #mastodon .column-link {
+    padding: 18px;
+}
+body.air #mastodon .column-link__icon {
+    margin-right: 16px;
+}
+body.air #mastodon.hideTrends .getting-started__trends {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+body.air #mastodon.hideAboutLinks .link-footer {
+    display: none;
+    visibility: hidden;
+}
+body.air #mastodon .tabs-bar__bg {
+    position: fixed;
+    height: 60px;
+    width: 999px;
+    top: 0;
+    padding-top: 0;
+    z-index: 0;
+}
+body.air #mastodon .notification__filter-bar {
+    border-left: 0;
+    border-right: 0;
+}
+body.air #mastodon .setting-text {
+    border-radius: 999px;
+}
+body.air #mastodon textarea.setting-text {
+    border-radius: 12px;
+}
+body.air #mastodon .icon-with-badge__badge {
+    border-radius: 24px;
+    left: 12px;
+    top: -12px;
+}
+body.air #mastodon .poll__input,
+body.air #mastodon .poll__input:active,
+body.air #mastodon .poll__input:focus,
+body.air #mastodon .poll__input:hover {
+    border-width: 1px;
+    border-radius: 12px;
+}
+body.air #mastodon .poll .button {
+    height: 46px;
+    border-width: 0;
+}
+body.air #mastodon .detailed-status__action-bar {
+    border-top: none;
+}
+body.air #mastodon .columns-area__panels__main {
+    padding: 0 16px;
+}
+body.air #mastodon .detailed-status__action-bar,
+body.air #mastodon .account-card,
+body.air #mastodon .follow_requests-unlocked_explanation {
+    border-radius: 12px;
+}
+body.air #mastodon .detailed-status__action-bar,
+body.air #mastodon .account-card {
+    margin-bottom: 24px;
+}
+body.air #mastodon .account-card__header img {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+body.air #mastodon .account-card__header {
+    padding: 0;
+}
+body.air #mastodon .getting-started__trends h4 {
+    border-width: 2px;
+}
+body.air #mastodon .audio-player,
+body.air #mastodon .report-dialog-modal__textarea,
+body.air #mastodon .setting-text {
+    padding: 12px;
+}
+body.air #mastodon .reply-indicator {
+    margin-bottom: 24px;
+}
+body.air #mastodon .search {
+    margin: 10px 18px 24px;
+}
+body.air #mastodon .search__input {
+    border-radius: 999px;
+    border: 0;
+}
+body.air #mastodon .poll__option input[type="text"],
+body.air #mastodon .compose-form .spoiler-input__input,
+body.air #mastodon .compose-form__autosuggest-wrapper,
+body.air #mastodon .compose-form__poll-wrapper select {
+    border-radius: 999px;
+    padding: 12px;
+}
+body.air #mastodon .setting-text__wrapper {
+    background: none;
+    border: 0;
+}
+body.air #mastodon .compose-form .compose-form__warning {
+    border-radius: 12px;
+}
+body.air #mastodon .autosuggest-textarea__textarea,
+body.air #mastodon .compose-form__autosuggest-wrapper,
+body.air #mastodon .compose-form__buttons-wrapper,
+body.air #mastodon .reply-indicator {
+    border-radius: 24px;
+}
+body.air #mastodon .compose-form__autosuggest-wrapper {
+    border-bottom: 0;
+}
+body.air #mastodon .autosuggest-textarea__textarea,
+body.air #mastodon .compose-form__autosuggest-wrapper {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-width: 2px;
+}
+body.air #mastodon .compose-form__buttons-wrapper {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-width: 2px;
+}
+body.air #mastodon .language-dropdown__dropdown,
+body.air #mastodon .privacy-dropdown__dropdown,
+body.air #mastodon .emoji-picker-dropdown__menu {
+    z-index: 1200;
+}
+body.air #mastodon .emoji-picker-dropdown {
+    top: 12px;
+    right: 12px;
+}
+body.air #mastodon .autosuggest-textarea__textarea {
+    padding: 16px;
+    padding-right: 40px;
+    min-height: 180px;
+}
+body.air #mastodon .spoiler-input__input {
+    padding: 16px;
+    border-radius: 24px;
+    margin-top: -12px;
+}
+body.air #mastodon .compose-form__poll-wrapper,
+body.air #mastodon .compose-form__poll-wrapper .poll__footer {
+  border-width: 2px;
+}
+body.air #mastodon .compose-panel {
+    column-width: auto;
+    -moz-column-width: 400px;
+    width: auto; 
+    max-width: 500px;
+}
+body.air #mastodon .column > .scrollable {
+    background: none;
+    padding-right: 8px;
+}
+body.air #mastodon .story {
+    border-bottom: none;
+    border-radius: 12px;
+}
+body.air #mastodon .story__thumbnail__preview,
+body.air #mastodon .story__thumbnail img {
+    border-radius: 12px;
+}
+body.air #mastodon .dismissable-banner {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border: none;
+}
+body.air #mastodon .focusable:focus {
+    border-radius: 12px;
+}
+body.air #mastodon .status-card,
+body.air #mastodon .column-header__collapsible-inner,
+body.air #mastodon .column-header__wrapper .announcements {
+    border-radius: 12px;
+}
+body.air #mastodon article,
+body.air #mastodon .scrollable .status__wrapper,
+body.air #mastodon .scrollable .focusable.detailed-status__wrapper,
+body.air #mastodon .conversation {
+    margin-bottom: 24px;
+}
+body.air #mastodon .status,
+body.air #mastodon .focusable.detailed-status__wrapper,
+body.air #mastodon .notification.notification-follow.focusable .account,
+body.air #mastodon .conversation {
+    border-radius: 12px;
+    background-position: center;
+}
+body.air #mastodon .column-back-button,
+body.air #mastodon .column-header {
+    border: none;
+}
+body.air #mastodon .account__header {
+    border-radius: 12px;
+}
+body.air #mastodon .account__header__bar {
+    border-bottom: none;
+    padding: 0;
+}
+body.air #mastodon .account__header__tabs {
+    padding-left: 18px;
+}
+body.air #mastodon .account__header__tabs__name,
+body.air #mastodon .account__header__bio .account__header__content,
+body.air #mastodon .account__header__account-note {
+    margin-left: 18px;
+}
+body.air #mastodon .account__header__bio .account__header__fields {
+    border-radius: 0;
+}
+body.air #mastodon .account__header__account-note textarea {
+    width: 100%;
+}
+body.air #mastodon .account__header__bio .account__header__fields .verified:last-child {
+    /* border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px; */
+    border: 0;
+}
+body.air #mastodon .account__header__bio .account__header__fields .verified,
+body.air #mastodon .account__header__fields .verified,
+body.air #mastodon .account__header__tabs__buttons .icon-button {
+    border: none;
+}
+body.air #mastodon .column-header__collapsible-inner {
+    border: 0;
+}
+body.air #mastodon .mention,
+body.air #mastodon .hashtag,
+body.air #mastodon .status-link {
+    font-weight: 400;
+}
+body.air #mastodon .column-link--transparent.active {
+    border-radius: 999px;
+}
+body.air #mastodon .account-card__header {
+    border-radius: 12px 12px 0 0;
+}
+body.air #mastodon button.icon-button i.fa-retweet::before,
+body.air #mastodon button.icon-button.disabled i.fa-retweet::before {
+    display: block !important;
+}
+body.air #mastodon .account__header__bio .account__header__fields dl {
+    border: 0;
+}
+body.air #mastodon .account {
+    border: 0;
+}
+body.air #mastodon .account__header__fields .verified__mark {
+    font-size: 24px;
+}
+body.air #mastodon .status__content,
+body.air #mastodon .navigation-bar a,
+body.air #mastodon .column-link,
+body.air #mastodon .setting-text,
+body.air #mastodon .search__input,
+body.air #mastodon .autosuggest-textarea__textarea,
+body.air #mastodon .spoiler-input__input,
+body.air #mastodon .reply-indicator,
+body.air #mastodon .trends__item__name,
+body.air #mastodon .trends__item__name a,
+body.air #mastodon .account .account__display-name,
+body.air #mastodon .account__header__tabs__name h1 {
+    font-size: 18px;
+}
+body.air #mastodon .account__header__tabs__name h1 small,
+body.air #mastodon .account__header__content,
+body.air #mastodon .account__header__fields {
+    font-size: 16px;
+}
+body.air #mastodon .account__header__bio .account__header__fields dd,
+body.air #mastodon .account__header__bio .account__header__fields dt,
+body.air #mastodon .account__section-headline a,
+body.air #mastodon .account__section-headline button,
+body.air #mastodon .notification__filter-bar a,
+body.air #mastodon .notification__filter-bar button {
+    font-size: 14px;
+}
+body.air #mastodon .account-timeline__header {
+    margin-bottom: 24px;
+}
+body.air #mastodon .account__header__extra__links a.active {
+    border-radius: 12px;
+}
+body.air #mastodon .account__header__extra__links a.active span {
+    margin: 6px;
+    font-weight: 400;
+}
+body.air #mastodon .account__header__extra__links a.active strong span {
+    margin: 0;
+}
+body.air #mastodon .account__header__extra__links {
+    margin: 0;
+}
+body.air #mastodon .account__header__bar .avatar .account__avatar {
+    border: 0;
+    padding: 2px;
+}
+body.air #mastodon .account__header__bar .avatar .account__avatar img {
+    border-radius: 50%;
+}
+body.air #mastodon .announcements {
+    margin-top: 12px;
+}
+body.air #mastodon .follow_requests-unlocked_explanation {
+    text-align: left;
+}
+body.air #mastodon .follow_requests-unlocked_explanation a {
+    text-decoration: underline;
+}
+body.air #mastodon .setting-text {
+    border: 0;
+}
+body.air #mastodon .poll__chart {
+    opacity: 0.5;
+}
+body.air #mastodon .button.disabled,
+body.air #mastodon .button:disabled {
+    opacity: 0.5;
+}
+body.air #mastodon .getting-started__trends h4 {
+    border: 0;
+}
+body.air #mastodon .getting-started .column-link,
+body.air #mastodon .scrollable .column-link,
+body.air #mastodon .column-subheading,
+body.air #mastodon .list-panel .active {
+    background: none;
+    border: none;
+}
+body.air #mastodon input[type="text"] {
+    border: 0;
+    border-radius: 999px;
+}
+body.air #mastodon .explore__search-header {
+    background: none;
+}

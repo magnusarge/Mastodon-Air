@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Mastodon Air",
   "description": "Mastodon clean theme.",
-  "version": "2.0.9",
+  "version": "2.1",
   "icons": {
       "16": "images/icon16.png",
       "32": "images/icon32.png",
@@ -16,14 +16,26 @@
       {
         "matches": ["https://*/*"],
         "css": ["styles/styles.css",
+                "styles/base.css",
+                "styles/logo.css",
                 "styles/multi-column.css",
-                "styles/colors.css",
-                "styles/flex-columns/column-inner.css",
-                "styles/compose-panel/compose-panel.css",
-                "styles/compose-panel/compose-form.css",
-                "styles/compose-panel/search.css",
-                "styles/compose-panel/navigation-bar.css",
-                "styles/main-panel/scrollable.css"]
+                "styles/screen-size.css",
+                "styles/theme-colors.css",
+                "styles/accent.css"],
+        "js": ["js/browser.js",
+              "js/jquery-3.6.2.slim.min.js",
+              "masto-air/js/themebackgrounds.js",
+              "js/content.js"],
+        "run_at": "document_end"
       }
-    ]
+    ],
+    "web_accessible_resources": [{
+      "resources":["options/options.html"],
+      "matches":["<all_urls>"]
+    }],
+    "options_ui": {
+      "page": "options/options.html",
+      "open_in_tab": true
+    },
+    "permissions": ["storage"]
 }

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+        html, body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+        }
+        form {
+            width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            padding: 0 0 8px 58px;
+            background-image: url(../images/icon64.png);
+            background-repeat: no-repeat;
+            background-size: 48px;
+        }
+        h2 {
+            margin-bottom: 6px;
+        }
+        button {
+            padding: 18px;
+        }
+        .thankYou {
+            font-size: 1.4em;
+            font-weight: 500;
+            display: block;
+            padding: 6px;
+            margin: 12px 0 0;
+        }
+        .wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .section {
+            margin: 24px auto;
+        }
+        .center {
+            text-align: center;
+        }
+        .buttons {
+            margin: 12px auto;
+        }
+        .formRow {
+            padding: 12px 0;
+            margin-top: 12px;
+        }
+        .formRow .label {
+            float: left;
+            width: 240px;
+        }
+        .formRow .option {
+            margin-left: 250px;
+        }
+        .formRow .option input.wide {
+            width: 100%;
+        }
+        img.coffee {
+            max-width: 180px;
+            border-radius: 8px;
+            margin: 12px auto;
+            border: 6px solid gold;
+        }
+        .colorContainer {
+            position: relative;
+            display: inline-table;
+            height: 22px;
+            cursor: pointer;
+            font-size: 12px;
+            padding: 0 11px;
+        }
+        /* Hide the default radio button */
+        .colorContainer input {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .themeCheck {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 22px;
+            width: 22px;
+            background:#eff3f5;
+            /* border-radius: 6px;
+            border: 3px solid transparent; */
+        }
+        #themeDark .themeCheck {
+            background: #191b22;
+        }
+        /* .colorContainer input ~ .themeCheck {
+            border: 1px solid transparent;
+        } */
+        /* .colorContainer input:hover ~ .themeCheck {
+            border-top-color: lightgray;
+        } */
+        /* .colorContainer input:checked ~ .themeCheck {
+            border: 1px solid blue;
+        } */
+        .themeCheck:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .colorContainer input:checked ~ .themeCheck:after {
+            display: block;
+        }
+        .colorContainer .themeCheck:after {
+            bottom: -4px;
+            right: -4px;
+            left: -4px;
+            top: -4px;
+            background: inherit;
+            border: 1px solid dodgerblue;
+            z-index: 10;
+            border-radius: 50%;
+        }
+        #themeDark .colorContainer .themeCheck:after {
+            background: gold;
+        }
+
+        /**/
+        .modeContainer {
+            position: relative;
+            display: inline-table;
+            height: 22px;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 4px;
+        }
+        /* Hide the default radio button */
+        .modeContainer input {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .modeCheck {
+            position: relative;
+            top: 0;
+            left: 0;
+            height: 22px;
+            width: 60px;
+            padding: 8px;
+            border-radius: 6px;
+            /* border: 1px solid gainsboro; */
+        }
+        .modeCheck:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .modeContainer input:checked ~ .modeCheck:after {
+            display: block;
+        }
+        .modeContainer .modeCheck:after {
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+            border: 1px solid dodgerblue;
+            z-index: 10;
+            border-radius: 6px;
+        }
+        #preview {
+            padding: 24px;
+            border-radius: 6px;
+        }
+        #preview.light {
+            color: white;
+        }
+        #preview.dark {
+            color: black;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+        <p class="section">
+            <form>
+                <h1>Mastodon Air</h1>
+                <div class="formRow">
+                    <div class="label">
+                        <label for="airEnabled">Mastodon Air is enabled</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="airEnabled" name="airEnabled" />
+                    </div>
+                </div>
+                <div class="formRow" id="preview"><cite>Preview</cite><br>Selected color: <b><span id="selectedColor"></span></b></div>
+
+
+                <div class="formRow" id="themeBg"></div>
+
+                <!-- <h2>Dark theme background</h2>
+                <cite>You need to switch to the Dark theme in Mastodon preferences to see immediate changes.</cite>
+                <div class="formRow" id="themeDark"><label class="colorContainer"><input type="radio" name="themeDark" value="default"><span class="themeCheck" title="Default"></span></label></div> -->
+
+                <div class="formRow">
+                    <div class="label">
+                        Text color
+                    </div>
+                    <div class="option" id="themeMode">
+                        <!--<label class="modeContainer"><input type="radio" name="mode" value="disabled" /><span class="modeCheck" title="From Mastodon preferences">Automatic</span></label>-->
+                        <label class="modeContainer"><input type="radio" name="mode" value="dark" /><span class="modeCheck" title="Dark text">Dark</span></label>
+                        <label class="modeContainer"><input type="radio" name="mode" value="light" /><span class="modeCheck" title="Light text">Light</span></label>
+                    </div>
+                </div>
+
+                <div class="formRow">
+                    <div class="label">
+                        <label for="hideTrends">Hide trends</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="hideTrends" name="hideTrends" />
+                    </div>
+                </div>
+
+                <div class="formRow">
+                    <div class="label">
+                        <label for="hideAboutLinks">Hide About links</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="hideAboutLinks" name="hideAboutLinks" />
+                    </div>
+                </div>
+
+
+                <p class="section">Mastodon Air is completely free to use, but if you would like to show your appreciation, you can buy me a coffee.
+                <span class="thankYou center">Thank you for your support!</span>
+                </p>
+                <p class="section center">
+                <a href="http://buymeacoffee.com/magnusarge" target="_blank"><img class="coffee" src="../images/coffee.png" alt="Buy me coffee" /></a></p>
+            
+            </form>
+        </p>
+    </div>
+    <script src="../js/jquery-3.6.2.slim.min.js"></script>
+    <script src="../js/browser.js"></script>
+    <script src="../js/themebackgrounds.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

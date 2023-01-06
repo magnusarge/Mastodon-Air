@@ -1,6 +1,0 @@
-#mastodon .compose-panel {
-    column-width: auto !important;
-    -moz-column-width: 400px !important;
-    width: auto !important; 
-    max-width: 500px !important;
-}

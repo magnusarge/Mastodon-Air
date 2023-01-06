@@ -1,0 +1,13 @@
+
+body.air #mastodon .icon-with-badge__badge {
+  background: #ff5050;
+  border-color: #ff5050;
+}
+body.air #mastodon .bookmark-icon.active {
+  color: #ff5050 !important;
+}
+body.air #mastodon .notification__favourite-icon-wrapper .star-icon,
+body.air #mastodon .icon-button.star-icon.active,
+body.air #mastodon .account__header__tabs__buttons .icon-button.active {
+  color: #ffb300 !important;
+}

@@ -1,17 +1,17 @@
-.theme-mastodon-light.layout-multiple-columns #mastodon .column .scrollable {
+body.air.theme-mastodon-light.layout-multiple-columns #mastodon .column .scrollable {
     border-right: 1px solid whitesmoke !important;
 }
-.layout-multiple-columns #mastodon .drawer__header, .drawer__inner {
+body.air.layout-multiple-columns #mastodon .drawer__header, .drawer__inner {
     border: 0 !important;
 }
-.layout-multiple-columns #mastodon .reply-indicator {
+body.air.layout-multiple-columns #mastodon .reply-indicator {
     margin-bottom: 24px !important;
 }
-.layout-multiple-columns #mastodon .getting-started,
-.layout-multiple-columns #mastodon .getting-started__wrapper,
-.layout-multiple-columns #mastodon .drawer__inner,
-.layout-multiple-columns #mastodon .drawer__header,
-.layout-multiple-columns #mastodon .drawer__inner__mastodon {
+body.air.layout-multiple-columns #mastodon .getting-started,
+body.air.layout-multiple-columns #mastodon .getting-started__wrapper,
+body.air.layout-multiple-columns #mastodon .drawer__inner,
+body.air.layout-multiple-columns #mastodon .drawer__header,
+body.air.layout-multiple-columns #mastodon .drawer__inner__mastodon {
     background: none !important;
 }
 
