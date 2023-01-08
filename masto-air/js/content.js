@@ -7,6 +7,7 @@
 
 let browserName = detectBrowser();
 if ( browserName == 'firefox' ) var chrome = browser;
+//let version = chrome.runtime.getManifest().version;
 var debug = true;
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
@@ -27,8 +28,9 @@ function onError(error) {
 
 function startEngine() {
   function airEnabledCheck(item) {
-    if ( item.airEnabled != true && item.airEnabled != false ) {
+    if ( item.airEnabled == 'undefined' ) {
       // First run. Set value and wait for onchange listener
+      say("Enabling Air for first time run.");
       chrome.storage.local.set({airEnabled: true});
     } else {
       let canStart = item.airEnabled ? true : false;
@@ -42,17 +44,15 @@ function startEngine() {
   airEnabled.then(airEnabledCheck, onError);
 }
 
-console.log(chrome.runtime.getManifest().version);
+let firefoxPath = browserName == 'firefox' ? "/masto-air/" : "";
+let optionsUrl = chrome.runtime.getURL(`${firefoxPath}options/options.html`);
 
 function addOptionsLink() {
-  if ( !$("#airoptions").length ) {
-    let firefoxPath = browserName == 'firefox' ? "/masto-air/" : "";
-    let optionsUrl = chrome.runtime.getURL(`${firefoxPath}options/options.html`); 
+  if ( !$("#airoptions").length ) { 
     let optionsLink = $(`<a id="airoptions" class="column-link column-link--transparent" title="Mastodon Air options" href="${optionsUrl}" target="_blank"><i class="fa fa-diamond column-link__icon fa-fw"></i><span>Theme options</span></a>`);
     // .navigation-panel__legal must appear first
     setTimeout(function() {
-      $(optionsLink).insertBefore($("body.app-body #mastodon .navigation-panel__legal").first());
-      //$(".getting-started.scrollable.scrollable--flex .getting-started__wrapper").append($(optionsLink));  
+      $(optionsLink).insertBefore($("body.app-body #mastodon .navigation-panel__legal").first());  
     }, 100);
   }
 }
@@ -97,23 +97,39 @@ function airIsEnabled () {
     // ---------- Mastodon Air content.js ---------- //
 
       $("body").addClass("air");
-
       say(`Signed in: ${isSignedIn}`);
       say(`Browser: ${browserName}`);
-      let factoryTheme = "";
-      let airThemeMode = false; // Let Air controls light/dark modes
-      checkThemeMode()
+
+      let initialTheme = "";
+
+      checkTextColor();
       themeColor();
+      checkAccentColor();
       checkHideTrends();
       checkAboutLinks();
 
+      
+      function initTheme() {
+        // Lets write down what the Mastodon's theme is
+        if ( initialTheme == "" ) { // Only first time!
+          let classList = $("body").attr('class').split(/\s+/);
+          let themeList = ["theme-default","theme-mastodon-light"];
+          $.each(themeList, function(index, item) {
+            if ( $.inArray(item, classList) > -1 ) {
+              initialTheme = item;
+              say("Factory theme: "+initialTheme);
+              return;
+            }
+          });
+        }
+      }
       function themeColor() {
         // let classList = $("body").attr('class').split(/\s+/);
         // let themeList = ["theme-default","theme-mastodon-light"];
         // $.each(themeList, function(index, item) {
         //   if ( $.inArray(item, classList) > -1 ) {
         //     let theme = index === 0 ? "themeDark" : "themeLight";
-        //     factoryTheme = theme;
+        //     initialTheme = theme;
         //     say("Theme: "+theme);
             const gettingThemeBg = chrome.storage.local.get("themeBg");//theme);
             gettingThemeBg.then(onThemeBg, onError);
@@ -124,13 +140,13 @@ function airIsEnabled () {
       function onThemeBg(item) {
         let bgtheme = "default";
         let scrollForeground = "black";
-        // if ( factoryTheme == "themeLight")
+        // if ( initialTheme == "themeLight")
         //    { if (item.themeLight) theme = item.themeLight; }
-        // if ( factoryTheme == "themeDark")
+        // if ( initialTheme == "themeDark")
         //    { if (item.themeDark) theme = item.themeDark; }
         if ( !item.themeBg ) {
           say("Theme background nil, falling to defaults.");
-          if ( factoryTheme == "theme-mastodon-light" ) {
+          if ( initialTheme == "theme-mastodon-light" ) {
             item.themeBg = themeBackgrounds.DefaultLight;
           } else {
             item.themeBg = themeBackgrounds.DefaultDark;
@@ -180,48 +196,106 @@ function airIsEnabled () {
           $("body.app-body.air .ui__header").css("background", `${color}`);
         }, 100);     
       }
-      function themeMode(item) {
-        let themeMode = "";
-        let msg = "Theme mode is";
-        if (item.themeMode) {
-          themeMode = item.themeMode;
+      function textColor(item) {
+        let textColor = "";
+        let msg = "Text color is";
+
+        if ( !item.textColor ) {
+          say("Text color is empty!");
+        } else {
+          textColor = item.textColor;
           msg = `${msg} confirmed`;
         } 
 
-        
-        
-        if (themeMode != "light" && themeMode != "dark" ) {
-            if ( factoryTheme == "theme-mastodon-light" ) {
-              themeMode = "dark";
+        if (textColor != "light" && textColor != "dark" ) {
+            if ( initialTheme == "theme-mastodon-light" ) {
+              textColor = "dark";
             } else {
-              themeMode = "light";
+              textColor = "light";
             }
             msg = `${msg} forced`;
         }
-        say(`${msg} ${themeMode}`);
+        say(`${msg} ${textColor}`);
         //airThemeMode = themeMode != "disabled";
         $("body").removeClass("theme-default theme-mastodon-light");
         //if (airThemeMode) {
-          let theme = themeMode == "dark" ? "theme-mastodon-light" : "theme-default";
+          let theme = textColor == "dark" ? "theme-mastodon-light" : "theme-default";
           $("body").addClass(`${theme}`);
-        //} else { $("body").addClass(factoryTheme) }
+        //} else { $("body").addClass(initialTheme) }
       }
-      function checkThemeMode() {
-        // Lets write down what the Mastodon's theme is
-        if ( factoryTheme == "" ) { // Only first time!
-          let classList = $("body").attr('class').split(/\s+/);
-          let themeList = ["theme-default","theme-mastodon-light"];
-          $.each(themeList, function(index, item) {
-            if ( $.inArray(item, classList) > -1 ) {
-              //let theme = index === 0 ? "themeDark" : "themeLight";
-              factoryTheme = item;
-            }
-          });
-        }
-        say("Factory theme: "+factoryTheme);
+      function checkTextColor() {
+        const gettingTextColor = chrome.storage.local.get("textColor");
+        gettingTextColor.then(textColor, onError);
+      }
+      function accentColor(item) {
+        let accentColor = {text:"light",color:"SlateBlue",title:"SlateBlue"};
+        let msg = "Accent color is";
 
-        const gettingThemeMode = chrome.storage.local.get("themeMode");
-        gettingThemeMode.then(themeMode, onError);
+        if ( !item.accentColor ) {
+          say("Accent color is empty!");
+        } else {
+          accentColor = item.accentColor;
+          msg = `${msg} confirmed`;
+        } 
+        accentColor.text = accentColor.text == "dark" ? "black" : "white";
+        say(`${msg} ${accentColor.title}`);
+
+        let accentStyles = $('<style id="airAccent" type="text/css"></style>');
+        accentStyles.text(`
+        body.air #mastodon .react-toggle--checked .react-toggle-track,
+        body.air #mastodon .button {
+          background-color: ${accentColor.color} !important;
+        }
+        body.air #mastodon .trends__item__sparkline path:last-child {
+          stroke: ${accentColor.color} !important;
+        }
+        body.air #mastodon .trends__item__sparkline path:first-child {
+          fill: ${accentColor.color} !important;
+        }
+        body.air.theme-mastodon-light #mastodon .notification.unread::before,
+        body.air.theme-mastodon-light #mastodon .status__wrapper.unread::before {
+          border-left-color: ${accentColor.color} !important;
+        }
+        body.air #mastodon .radio-button__input.checked,
+        body.air .language-dropdown__dropdown__results__item.active,
+        body.air .dropdown-menu__item a:active,
+        body.air .dropdown-menu__item a:focus,
+        body.air .dropdown-menu__item a:hover,
+        body.air .dropdown-menu__item button:active,
+        body.air .dropdown-menu__item button:focus,
+        body.air .dropdown-menu__item button:hover,
+        body.air .privacy-dropdown__option.active,
+        body.air .privacy-dropdown__option:hover,
+        body.air #mastodon .poll__chart {
+          background: ${accentColor.color} !important;
+        }
+        body.air #mastodon .button.disabled,
+        body.air #mastodon .button:disabled {
+          background-color: ${accentColor.color} !important;
+        }
+        body.air #mastodon .columns-area__panels__main .status__content a {
+          color: ${accentColor.color} !important;
+        }
+        body.air #mastodon .compose-form__sensitive-button .checkbox,
+        body.air #mastodon .compose-form__sensitive-button .checkbox.active {
+          border-color: ${accentColor.color} !important;
+        }
+        body.air #mastodon .compose-form__sensitive-button .checkbox.active {
+          background: ${accentColor.color} !important;
+        }
+        body.air #mastodon .button,
+        body.air #mastodon .button.button-alternative-2 {
+          color: ${accentColor.text} !important;
+        }
+        `);
+        //headStyles.text(`html{scrollbar-color:black ${color};}`);
+        $("#airAccent").remove();
+        $(".app-body").append(accentStyles);
+
+      }
+      function checkAccentColor() {
+        const gettingAccentColor = chrome.storage.local.get("accentColor");
+        gettingAccentColor.then(accentColor, onError);
       }
       function hideTrends(item) {
         let hideTrends = false;
@@ -249,14 +323,11 @@ function airIsEnabled () {
 
       chrome.storage.onChanged.addListener((changes, namespace) => {
         for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-          if ( key == "themeBg") {
-            if ( oldValue != newValue ) {
-              themeColor();
-            }
-          }
+          if ( key == "themeBg" && oldValue != newValue ) themeColor();
           if ( key == "hideTrends" && oldValue != newValue ) checkHideTrends();
           if ( key == "hideAboutLinks" && oldValue != newValue ) checkAboutLinks();
-          if ( key == "themeMode" && oldValue != newValue ) checkThemeMode();
+          if ( key == "textColor" && oldValue != newValue ) checkTextColor();
+          if ( key == "accentColor" && oldValue != newValue ) checkAccentColor();
         }
       });      
 

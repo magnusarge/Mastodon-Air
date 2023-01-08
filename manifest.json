@@ -27,7 +27,6 @@
               "masto-air/styles/accent.css"],
       "js": ["masto-air/js/browser.js",
              "masto-air/js/jquery-3.6.2.slim.min.js",
-             "masto-air/js/themebackgrounds.js",
              "masto-air/js/content.js"],
       "run_at": "document_idle"
     }

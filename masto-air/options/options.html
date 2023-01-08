@@ -3,9 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <style>
-        html, body {
-            font-family: Arial, Helvetica, sans-serif;
+        @font-face {
+            font-family: mastodon-font-sans-serif;
+            src: url("../fonts/roboto.woff2");
+        }
+        body {
+            font-family: "mastodon-font-sans-serif",sans-serif;
             font-size: 1em;
+            background: green;/* #191b22;*/
+            color: white;
         }
         form {
             width: 600px;
@@ -66,10 +72,10 @@
         .colorContainer {
             position: relative;
             display: inline-table;
-            height: 22px;
+            height: 28px;
             cursor: pointer;
             font-size: 12px;
-            padding: 0 11px;
+            padding: 0 16px;
         }
         /* Hide the default radio button */
         .colorContainer input {
@@ -81,14 +87,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            height: 22px;
-            width: 22px;
+            height: 32px;
+            width: 32px;
             background:#eff3f5;
-            /* border-radius: 6px;
-            border: 3px solid transparent; */
-        }
-        #themeDark .themeCheck {
-            background: #191b22;
         }
         /* .colorContainer input ~ .themeCheck {
             border: 1px solid transparent;
@@ -108,10 +109,10 @@
             display: block;
         }
         .colorContainer .themeCheck:after {
-            bottom: -4px;
-            right: -4px;
-            left: -4px;
-            top: -4px;
+            bottom: -8px;
+            right: -8px;
+            left: -8px;
+            top: -8px;
             background: inherit;
             border: 1px solid dodgerblue;
             z-index: 10;
@@ -121,7 +122,7 @@
             background: gold;
         }
 
-        /**/
+        /* Text color was part of mode, hence the name... */
         .modeContainer {
             position: relative;
             display: inline-table;
@@ -163,15 +164,128 @@
             z-index: 10;
             border-radius: 6px;
         }
+        a, a:hover {
+            text-decoration: none;
+        }
+        a span:hover {
+            text-decoration: underline;
+        }
+        .tabs {
+            margin-top: 24px;
+        }
+        #tabRow {
+            margin-bottom: 12px;
+        }
+        #tabContainer {
+            border: 1px solid silver;
+            border-radius: 6px;
+            border-top-left-radius: 0;
+            padding: 0 24px 24px;
+            height: 360px;
+            background: #191b22;
+            color: white;
+        }
+        .tab,
+        .tab:active,
+        .tab:focus {
+            padding: 12px;
+            color: gray;
+            border: 1px solid dimgray;
+            border-radius: 6px;
+            border-bottom: none;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            text-decoration: none;
+            background: #191b22;
+        }
+        .tab:hover {
+            text-decoration: none;
+            color: dodgerblue;
+
+        }
+        .tab.active,
+        .tab.active:active,
+        .tab.active:focus,
+        .tab.active:hover {
+            color: dodgerblue;
+            border-color: silver;
+            padding: 13px 12px;
+        }
+        p, .tabNote {
+            padding: 0 0 12px;
+            line-height: 1.5em;
+        }
         #preview {
+            position: relative;
             padding: 24px;
             border-radius: 6px;
+            border: 1px solid silver;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 22px;
+            height: 300px;
         }
         #preview.light {
             color: white;
         }
         #preview.dark {
             color: black;
+        }
+        .preview-leftcolumn {
+            position: absolute;
+            width: 200px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
+        .preview-rightcolumn {
+            margin-left: 212px;
+        }
+        .preview-textarea {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width:200px;
+            height: 100px;
+            border-bottom-right-radius: 24px;
+            border-top-left-radius: 6px;
+            background: white;
+        }
+        .preview-textarea-counter {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: rgba(0,0,0,.8);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 12px; 
+        }
+        .preview-button {
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            position: absolute;
+            right: 0;
+            top: 112px;
+        }
+        .preview-header {
+            position: relative;
+            font-size: 15px;
+        }
+        .preview-avatar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background-image: url(../images/icon64.png);
+        }
+        .preview-user {
+            margin-left: 60px;
         }
     </style>
   </head>
@@ -189,44 +303,59 @@
                         <input type="checkbox" id="airEnabled" name="airEnabled" />
                     </div>
                 </div>
-                <div class="formRow" id="preview"><cite>Preview</cite><br>Selected color: <b><span id="selectedColor"></span></b></div>
-
-
-                <div class="formRow" id="themeBg"></div>
-
-                <!-- <h2>Dark theme background</h2>
-                <cite>You need to switch to the Dark theme in Mastodon preferences to see immediate changes.</cite>
-                <div class="formRow" id="themeDark"><label class="colorContainer"><input type="radio" name="themeDark" value="default"><span class="themeCheck" title="Default"></span></label></div> -->
-
-                <div class="formRow">
-                    <div class="label">
-                        Text color
+                <div class="formRow" id="preview">
+                    <div class="preview-leftcolumn">
+                        <div class="preview-textarea"><div class="preview-textarea-counter">500</div></div>
+                        <a class="accentBackground preview-button" onclick="return false;" href="#">Publish!</a>
                     </div>
-                    <div class="option" id="themeMode">
-                        <!--<label class="modeContainer"><input type="radio" name="mode" value="disabled" /><span class="modeCheck" title="From Mastodon preferences">Automatic</span></label>-->
-                        <label class="modeContainer"><input type="radio" name="mode" value="dark" /><span class="modeCheck" title="Dark text">Dark</span></label>
-                        <label class="modeContainer"><input type="radio" name="mode" value="light" /><span class="modeCheck" title="Light text">Light</span></label>
+                    <div class="preview-rightcolumn">
+                        <div class="preview-header">
+                            <div class="preview-avatar"></div>
+                            <div class="preview-user">
+                                <b>This is preview</b><br>
+                                <span>@mastodonair</span>
+                            </div>
+                        </div>
+                        <p><a class="accentColor" onclick="return false;" href=""#">@<span>mastodon_user</span></a> Sure, I'd love to set up my favorite colors for my Mastodon page! For the background, I think I'll go with a <b><span id="selectedColor"></span></b>. For the accent color, I'll choose a <b><span id="selectedAccent" class="accentColor"></span></b> to add some contrast.<br>
+                        
                     </div>
                 </div>
 
-                <div class="formRow">
-                    <div class="label">
-                        <label for="hideTrends">Hide trends</label>
+                <div class="tabs">
+                    <div id="tabRow">
+                        <a href="#" onclick="return false;" class="tab active">Background</a>
+                        <a href="#" onclick="return false;" class="tab">Accent color</a>
+                        <a href="#" onclick="return false;" class="tab">Text</a>
+                        <a href="#" onclick="return false;" class="tab">Other settings</a>
                     </div>
-                    <div class="option">
-                        <input type="checkbox" id="hideTrends" name="hideTrends" />
+                    <div id="tabContainer">
+                        <div class="formRow tabContent" id="themeBg"><div class="tabNote">Changing background color will change accent and text colors according to it's default settings.</div></div>
+                        <div class="formRow tabContent" id="accentColor"><div class="tabNote">Accent color is used for buttons, links and some other elements in the page.</div></div>
+                        <div class="formRow tabContent">
+                            <div class="formRow">
+                                <div class="label">Text color</div>
+                                <div class="option" id="textColor">
+                                    <label class="modeContainer"><input type="radio" name="mode" value="dark" /><span class="modeCheck" title="Dark text">Dark</span></label>
+                                    <label class="modeContainer"><input type="radio" name="mode" value="light" /><span class="modeCheck" title="Light text">Light</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formRow tabContent">
+                            <div class="formRow">
+                                <div class="label"><label for="hideTrends">Hide trends</label></div>
+                                <div class="option">
+                                    <input type="checkbox" id="hideTrends" name="hideTrends" />
+                                </div>
+                            </div>
+                            <div class="formRow">
+                                <div class="label"><label for="hideAboutLinks">Hide About links</label></div>
+                                <div class="option">
+                                    <input type="checkbox" id="hideAboutLinks" name="hideAboutLinks" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="formRow">
-                    <div class="label">
-                        <label for="hideAboutLinks">Hide About links</label>
-                    </div>
-                    <div class="option">
-                        <input type="checkbox" id="hideAboutLinks" name="hideAboutLinks" />
-                    </div>
-                </div>
-
 
                 <p class="section">Mastodon Air is completely free to use, but if you would like to show your appreciation, you can buy me a coffee.
                 <span class="thankYou center">Thank you for your support!</span>
@@ -240,6 +369,7 @@
     <script src="../js/jquery-3.6.2.slim.min.js"></script>
     <script src="../js/browser.js"></script>
     <script src="../js/themebackgrounds.js"></script>
+    <script src="../js/accentcolors.js"></script>
     <script src="options.js"></script>
   </body>
 </html>

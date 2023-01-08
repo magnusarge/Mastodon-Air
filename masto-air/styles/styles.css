@@ -31,6 +31,9 @@ body.air.theme-mastodon-light #mastodon .poll__input:active,
 body.air.theme-mastodon-light #mastodon .poll__input:focus {
   background: rgba(0,0,0,.8);
 }
+body.air #mastodon .attachment-list.compact .fa,
+body.air #mastodon .account__display-name strong,
+body.air #mastodon .status__display-name strong,
 body.air #mastodon .link-footer p,
 body.air #mastodon .link-footer p a,
 body.air #mastodon .getting-started__trends h4,
@@ -102,6 +105,9 @@ body.air #mastodon .account-card__title .display-name bdi,
 body.air #mastodon .column-subheading {
     color: white;
 }
+body.air.theme-mastodon-light #mastodon .attachment-list.compact .fa,
+body.air.theme-mastodon-light #mastodon .account__display-name strong,
+body.air.theme-mastodon-light #mastodon .status__display-name strong,
 body.air.theme-mastodon-light #mastodon .link-footer p,
 body.air.theme-mastodon-light #mastodon .link-footer p a,
 body.air.theme-mastodon-light #mastodon .getting-started__trends h4,
@@ -565,6 +571,12 @@ body.air #mastodon .compose-form__buttons-wrapper .icon-button {
 body.air #mastodon .compose-form__upload-thumbnail .compose-form__upload__actions .icon-button,
 body.air #mastodon .compose-form__upload-thumbnail .compose-form__upload__warning .icon-button {
   color: white;
+}
+body.air #mastodon .column-header__icon {
+  color: white !important;
+}
+body.air.theme-mastodon-light #mastodon .column-header__icon {
+  color: black !important;
 }
 
 /* body.theme-mastodon-light,

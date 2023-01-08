@@ -24,7 +24,6 @@
                 "styles/accent.css"],
         "js": ["js/browser.js",
               "js/jquery-3.6.2.slim.min.js",
-              "masto-air/js/themebackgrounds.js",
               "js/content.js"],
         "run_at": "document_end"
       }
