@@ -1,46 +1,27 @@
 
 body.air-disabled #mastodon .compose-panel {
-    column-width: auto;
-    width: auto; 
-    max-width: 500px;
+  column-width: auto;
+  width: auto; 
+  max-width: 500px;
 }
 
-/* @media screen and (max-width: 1259px) {
-    body.air-disabled #mastodon .autosuggest-textarea__textarea {
-        padding: 10px !important;
-        padding-right: 40px !important;
-        font-size: 15px !important;
-    }
-  } */
-  @media screen and (min-width: 1260px) {
-    body.air-disabled #mastodon .columns-area__panels__pane__inner {
-      width: 320px !important; 
-    }
+@media screen and (min-width: 1260px) {
+  body.air-disabled #mastodon .columns-area__panels__pane__inner {
+    width: 320px !important; 
   }
-  /* @media screen and (max-width: 1359px) {
-    body.air-disabled #mastodon .autosuggest-textarea__textarea {
-        padding: 12px !important;
-        padding-right: 40px !important;
-        font-size: 16px !important;
-    }
-  } */
-  @media screen and (min-width: 1360px) {
-    body.air-disabled #mastodon .columns-area__panels__pane__inner {
-      width: 370px !important; 
-    }
+}
+@media screen and (min-width: 1360px) {
+  body.air-disabled #mastodon .columns-area__panels__pane__inner {
+    width: 370px !important; 
   }
-  @media screen and (min-width: 1400px) {
-    body.air-disabled #mastodon .columns-area__panels__pane__inner {
-      width: 390px !important; 
-    }
+}
+@media screen and (min-width: 1400px) {
+  body.air-disabled #mastodon .columns-area__panels__pane__inner {
+    width: 390px !important; 
   }
-  @media screen and (min-width: 1500px) {
-    body.air-disabled #mastodon .columns-area__panels__pane__inner {
-      width: 440px !important; 
-    }
+}
+@media screen and (min-width: 1500px) {
+  body.air-disabled #mastodon .columns-area__panels__pane__inner {
+    width: 440px !important; 
   }
-
-/* Probably not needed */
-/* body.air #mastodon .search {
-    margin: 10px 18px 24px;
-} */
+}

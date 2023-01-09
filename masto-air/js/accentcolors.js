@@ -1,1 +1,0 @@
-let accentColors = ["DefaultDark", "SlateGray", "IndianRed", "FireBrick", "HotPink", "Tomato", "DarkOrange", "Gold", "RebeccaPurple", "DarkMagenta", "SlateBlue", "Indigo", "SeaGreen", "OliveDrab", "DarkOliveGreen", "Teal", "SteelBlue", "DodgerBlue", "RoyalBlue", "MidnightBlue", "SaddleBrown", "Brown"];

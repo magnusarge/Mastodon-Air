@@ -39,7 +39,7 @@ function isMastodonInstance() {
 }
 function isUserSignedIn() {
   if ( !isMastodon ) return false;
-  console.log('Mastodon instance detected.');
+  //console.log('Mastodon instance detected.');
   return $(".navigation-panel__sign-in-banner").length ? false : true;
 }
 
@@ -55,7 +55,7 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 });
 
 function onError(error) {
-  console.log(`Error: ${error}`);
+  //console.log(`Error: ${error}`);
 }
 
 function setDefaults() {
@@ -65,12 +65,11 @@ function setDefaults() {
     hideAboutLinks:false,
     textColor:"",
     accentColor:"",
-    logoAccent:false,
+    logoAccent:true,
     keepWideText:true
   });
   chrome.storage.local.set({airEnabled: true});
 }
-
 function wideText(forceRemove) {
   if ( forceRemove ) {
     $("body.app-body").removeClass("air-disabled");
@@ -92,20 +91,19 @@ function wideText(forceRemove) {
     }
   }
 }
-
 function startEngine() {
   function airEnabledCheck(item) {
     if ( item.airEnabled ) {
-        console.log("Mastodon Air enabled");
+        //console.log("Mastodon Air enabled");
         air.enabled = true;
         airIsEnabled();
     } else if ( item.airEnabled == false ) {
-      console.log("Mastodon Air disabled");
+      //console.log("Mastodon Air disabled");
       air.enabled = false;
       airIsDisabled();
     } else {
       // First run. Set values and wait for onchange listener
-      console.log("Enabling Air for first time run.");
+      //console.log("Enabling Air for first time run.");
       setDefaults();
     }
   }
@@ -127,7 +125,6 @@ function addOptionsLink() {
 }
 function logoAccentColor(accentcolor) {
     if ( accentcolor == false || air.enabled == false ) accentcolor = air.logoFill[0];
-    //$("symbol#logo-symbol-wordmark path:nth-child(1)").css("fill",accentcolor);
     let cssText = `symbol#logo-symbol-wordmark path:nth-child(1) {fill:${accentcolor}}`;
     toggleStyles("air-logo-accent", cssText);
 }
@@ -137,8 +134,6 @@ function logoTextColor(textcolor) {
     eyecolor = air.logoFill[1];
     textcolor = air.logoFill[2];
   }
-  //$("symbol#logo-symbol-wordmark path:nth-child(2)").css("fill",eyecolor);
-  //$("symbol#logo-symbol-wordmark path:nth-child(3)").css("fill",textcolor);
   let cssText = `
   symbol#logo-symbol-wordmark path:nth-child(2) {fill:${eyecolor}}
   symbol#logo-symbol-wordmark path:nth-child(3) {fill:${textcolor}}
@@ -180,8 +175,8 @@ function airIsEnabled () {
 
   wideText(true);
   $("body.app-body").addClass("air");
-  console.log(`Signed in: ${isSignedIn}`);
-  console.log(`Browser: ${browserName}`);
+  //console.log(`Signed in: ${isSignedIn}`);
+  //console.log(`Browser: ${browserName}`);
 
   initTheme();
 
@@ -193,7 +188,7 @@ function airIsEnabled () {
       $.each(themeList, function(index, item) {
         if ( $.inArray(item, classList) > -1 ) {
           air.initialTheme = item;
-          console.log("Factory theme: "+air.initialTheme);
+          //console.log("Factory theme: "+air.initialTheme);
           return;
         }
       });
@@ -215,152 +210,163 @@ function airIsEnabled () {
 
   }
   function themeColor() {
-        const gettingThemeBg = chrome.storage.local.get("themeBg");//theme);
-        gettingThemeBg.then(onThemeBg, onError);
-  }
-  function onThemeBg(item) {
-    let bgtheme = "default";
-    let scrollForeground = "black";
+    const gettingThemeBg = chrome.storage.local.get("themeBg");//theme);
+    gettingThemeBg.then(onThemeBg, onError);
 
-    if ( !item.themeBg ) {
-      console.log("Theme background nil, falling to defaults.");
-      if ( air.initialTheme == "theme-mastodon-light" ) {
-        item.themeBg = themeBackgrounds.DefaultLight;
-      } else {
-        item.themeBg = themeBackgrounds.DefaultDark;
-      }
-    }
-
-    if (item.themeBg.color) {
-      bgtheme = item.themeBg.color;
-    }
-    if (item.themeBg.title) {
-      console.log(`Air theme background is ${item.themeBg.title}`);
-    }
-    if (item.themeBg.text) {
-      scrollForeground = item.themeBg.text == "light" ? "white" : "black";
-    }
-
-    let color = bgtheme == "default" ? "" : bgtheme;
-    air.background = color;
-
-    let scrollbars = `
-    body::-webkit-scrollbar {
-      width: 12px;
-    }
-    html, body {
-      /*scrollbar-width: thin;*/
-      scrollbar-color: ${scrollForeground} ${color};
-    }
-    body::-webkit-scrollbar-track {
-      background: ${color};
-    }
-    body::-webkit-scrollbar-thumb {
-      background-color: ${scrollForeground} ;
-      border-radius: 6px;
-      border: 0;
-    }`;
-    toggleStyles("air-scrollbars", scrollbars);
-    let themeBackground = `
-    body.app-body.air,
-    body.app-body.air .tabs-bar__wrapper,
-    body.app-body.air .ui__header {
-      background: ${color} !important;
-    }
-    `;
-    toggleStyles("air-theme", themeBackground);    
-  }
-  function textColor(item) {
-    let textColor = "";
-    let msg = "Text color is";
-
-    if ( !item.textColor ) {
-      console.log("Text color is empty!");
-    } else {
-      textColor = item.textColor;
-      msg = `${msg} confirmed`;
-    } 
-
-    // Airs textColor isn't set, trying to mimic Mastodon's initial values
-    if (textColor != "light" && textColor != "dark" ) {
+    function onThemeBg(item) {
+      let bgtheme = "default";
+      let scrollForeground = "black";
+  
+      if ( !item.themeBg ) {
+        //console.log("Theme background nil, falling to defaults.");
         if ( air.initialTheme == "theme-mastodon-light" ) {
-          textColor = "dark";
+          item.themeBg = themeBackgrounds.DefaultLight;
         } else {
-          textColor = "light";
+          item.themeBg = themeBackgrounds.DefaultDark;
         }
-        msg = `${msg} forced`;
+        chrome.storage.local.set({themeBg: item.themeBg});
+      }
+  
+      if (item.themeBg.color) {
+        bgtheme = item.themeBg.color;
+      }
+      if (item.themeBg.title) {
+        //console.log(`Air theme background is ${item.themeBg.title}`);
+      }
+      if (item.themeBg.text) {
+        scrollForeground = item.themeBg.text == "light" ? "white" : "black";
+      }
+  
+      let color = bgtheme == "default" ? "" : bgtheme;
+      air.background = color;
+  
+      // Styles for scrollbar
+      let scrollbars = `
+      body::-webkit-scrollbar {width: 12px;}
+      html, body {
+        scrollbar-color: ${scrollForeground} ${color};
+      }
+      body::-webkit-scrollbar-track {
+        background: ${color};
+      }
+      body::-webkit-scrollbar-track:hover {
+        background: ${color};
+      }
+      body::-webkit-scrollbar-thumb {
+        background-color: ${scrollForeground} ;
+        border-radius: 6px;
+        border: 0;
+      }`;
+      toggleStyles("air-scrollbars", scrollbars);
+  
+      // Styles for background
+      let themeBackground = `
+      body.app-body.air,
+      body.app-body.air .tabs-bar__wrapper,
+      body.app-body.air .ui__header {
+        background: ${color} !important;
+      }
+      `;
+      toggleStyles("air-theme", themeBackground);    
     }
-    console.log(`${msg} ${textColor}`);
-    air.textColor = textColor;
 
-    $("body").removeClass("theme-default theme-mastodon-light");
-
-    let theme = textColor == "dark" ? "theme-mastodon-light" : "theme-default";
-    $("body").addClass(`${theme}`);
-
-    logoTextColor(textColor=="dark"?"black":"white");
   }
   // Check text color
   function checkTextColor() {
     const gettingTextColor = chrome.storage.local.get("textColor");
     gettingTextColor.then(textColor, onError);
-  }
-  function accentColor(item) {
-    let accentColor = {text:"light",color:"SlateBlue",title:"SlateBlue"};
-    let msg = "Accent color is";
 
-    if ( !item.accentColor ) {
-      console.log("Accent color is empty!");
-    } else {
-      accentColor = item.accentColor;
-      msg = `${msg} confirmed`;
-    } 
-    accentColor.text = accentColor.text == "dark" ? "black" : "white";
-    console.log(`${msg} ${accentColor.title}`);
-
-    air.accent = accentColor.color;
-    // Logo accent color change goes through permission check
-    checkLogoAccent();
-
-    let accentStyles = 
-    `body.air #mastodon .trends__item__sparkline path:last-child
-      {stroke: ${accentColor.color} !important;}
-    body.air #mastodon .trends__item__sparkline path:first-child
-      {fill: ${accentColor.color} !important;}
-    body.air.theme-mastodon-light #mastodon .notification.unread::before,
-    body.air.theme-mastodon-light #mastodon .status__wrapper.unread::before
-      {border-left-color: ${accentColor.color} !important;}
-    body.air #mastodon .button.disabled,
-    body.air #mastodon .button:disabled,
-    body.air #mastodon .react-toggle--checked .react-toggle-track,
-    body.air #mastodon .button,
-    body.air #mastodon .radio-button__input.checked,
-    body.air .language-dropdown__dropdown__results__item.active,
-    body.air .dropdown-menu__item a:active,
-    body.air .dropdown-menu__item a:focus,
-    body.air .dropdown-menu__item a:hover,
-    body.air .dropdown-menu__item button:active,
-    body.air .dropdown-menu__item button:focus,
-    body.air .dropdown-menu__item button:hover,
-    body.air .privacy-dropdown__option.active,
-    body.air .privacy-dropdown__option:hover,
-    body.air #mastodon .poll__chart,
-    body.air #mastodon .compose-form__sensitive-button .checkbox.active
-      {background: ${accentColor.color} !important;}
-    body.air #mastodon .compose-form__sensitive-button .checkbox,
-    body.air #mastodon .compose-form__sensitive-button .checkbox.active
-      {border-color: ${accentColor.color} !important;}
-    body.air #mastodon .button,
-    body.air #mastodon .button.button-alternative-2,
-    body.air #mastodon .columns-area__panels__main .status__content a
-      {color: ${accentColor.text} !important;}
-      `;
-    toggleStyles("air-accent", accentStyles);
+    function textColor(item) {
+      let textColor = "";
+      let msg = "Text color is";
+  
+      if ( !item.textColor ) {
+        //console.log("Text color is empty!");
+      } else {
+        textColor = item.textColor;
+        msg = `${msg} confirmed`;
+      } 
+  
+      // Airs textColor isn't set, trying to mimic Mastodon's initial values
+      if (textColor != "light" && textColor != "dark" ) {
+          if ( air.initialTheme == "theme-mastodon-light" ) {
+            textColor = "dark";
+          } else {
+            textColor = "light";
+          }
+          msg = `${msg} forced`;
+          chrome.storage.local.set({textColor: textColor});
+      }
+      //console.log(`${msg} ${textColor}`);
+      air.textColor = textColor;
+  
+      $("body").removeClass("theme-default theme-mastodon-light");
+  
+      let theme = textColor == "dark" ? "theme-mastodon-light" : "theme-default";
+      $("body").addClass(`${theme}`);
+  
+      logoTextColor(textColor=="dark"?"black":"white");
+    }
   }
   // Check accent color
   function checkAccentColor() {
     const gettingAccentColor = chrome.storage.local.get("accentColor");
     gettingAccentColor.then(accentColor, onError);
+
+    function accentColor(item) {
+      let accentColor = themeBackgrounds.RoyalBlue;
+      let msg = "Accent color is";
+  
+      if ( !item.accentColor ) {
+        //console.log("Accent color is empty!");
+        chrome.storage.local.set({accentColor: accentColor});
+      } else {
+        accentColor = item.accentColor;
+        msg = `${msg} confirmed`;
+      } 
+      accentColor.text = accentColor.text == "dark" ? "black" : "white";
+      //console.log(`${msg} ${accentColor.title}`);
+  
+      air.accent = accentColor.color;
+      // Logo accent color change goes through permission check
+      checkLogoAccent();
+  
+      let accentStyles = 
+      `body.air #mastodon .trends__item__sparkline path:last-child
+        {stroke: ${accentColor.color} !important;}
+      body.air #mastodon .trends__item__sparkline path:first-child
+        {fill: ${accentColor.color} !important;}
+      body.air.theme-mastodon-light #mastodon .notification.unread::before,
+      body.air.theme-mastodon-light #mastodon .status__wrapper.unread::before
+        {border-left-color: ${accentColor.color} !important;}
+      body.air #mastodon .button.disabled,
+      body.air #mastodon .button:disabled,
+      body.air #mastodon .react-toggle--checked .react-toggle-track,
+      body.air #mastodon .button,
+      body.air #mastodon .radio-button__input.checked,
+      body.air .language-dropdown__dropdown__results__item.active,
+      body.air .dropdown-menu__item a:active,
+      body.air .dropdown-menu__item a:focus,
+      body.air .dropdown-menu__item a:hover,
+      body.air .dropdown-menu__item button:active,
+      body.air .dropdown-menu__item button:focus,
+      body.air .dropdown-menu__item button:hover,
+      body.air .privacy-dropdown__option.active,
+      body.air .privacy-dropdown__option:hover,
+      body.air #mastodon .poll__chart,
+      body.air #mastodon .compose-form__sensitive-button .checkbox.active
+        {background: ${accentColor.color} !important;}
+      body.air #mastodon .compose-form__sensitive-button .checkbox,
+      body.air #mastodon .compose-form__sensitive-button .checkbox.active
+        {border-color: ${accentColor.color} !important;}
+      body.air #mastodon .columns-area__panels__main .status__content a
+        {color: ${accentColor.color} !important;}
+      body.air #mastodon .button,
+      body.air #mastodon .button.button-alternative-2
+        {color: ${accentColor.text} !important;}
+        `;
+      toggleStyles("air-accent", accentStyles);
+    }
   }
   // Check if hiding Trends view is enabled. Default is false.
   function checkHideTrends() {
@@ -388,7 +394,7 @@ function airIsEnabled () {
       }
     }
   }
-  // Check if is allowed to change logo color. Default is false.
+  // Check if is allowed to change logo color. Default is true.
   function checkLogoAccent() {
     const gettingLogoAccent = chrome.storage.local.get("logoAccent");
     gettingLogoAccent.then(logoAccent, onError);

@@ -79,7 +79,7 @@ img.coffee {
 .colorContainer {
     position: relative;
     display: inline-table;
-    height: 28px;
+    height: 26px;
     cursor: pointer;
     font-size: 12px;
     padding: 0 16px;
@@ -100,15 +100,6 @@ img.coffee {
     width: 32px;
     background:#eff3f5;
 }
-/* .colorContainer input ~ .themeCheck {
-    border: 1px solid transparent;
-} */
-/* .colorContainer input:hover ~ .themeCheck {
-    border-top-color: lightgray;
-} */
-/* .colorContainer input:checked ~ .themeCheck {
-    border: 1px solid blue;
-} */
 .themeCheck:after {
     content: "";
     position: absolute;

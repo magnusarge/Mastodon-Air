@@ -8,12 +8,6 @@ $.each( themeBackgrounds, function( key, value ) {
 });
 
 //Fill accent color cells
-// $.each( accentColors, function() {
-//     let color = themeBackgrounds[this];
-//     console.log(color.id);
-//     let radio = $(`<label class="colorContainer"><input type="radio" name="accent" value="${color.id}"><span style="background: ${color.color}" class="themeCheck" title="${color.title}"></span></label>`);
-//     $('#accentColor').append(radio);
-// });
 $.each( themeBackgrounds, function( key, value ) {
     let radio = $(`<label class="colorContainer"><input type="radio" name="accent" value="${key}"><span style="background: ${value.color}" class="themeCheck" title="${value.title}"></span></label>`);
     $('#accentColor').append(radio);
@@ -46,7 +40,7 @@ function restoreOptions() {
         previewAccent(val);
     }
     function setLogoAccent(result) {
-        let val = false;
+        let val = true;
         if ( result.logoAccent || result.logoAccent == false ) {
             val = result.logoAccent;
         } else chrome.storage.local.set({logoAccent: val});
@@ -82,7 +76,7 @@ function restoreOptions() {
         $( "#airEnabled" ).prop( "checked", val );
     }
     function onError(error) {
-        console.log(`Error: ${error}`);
+        //console.log(`Error: ${error}`);
     }
 
     let gettingAirEnabled = chrome.storage.local.get("airEnabled");
@@ -148,7 +142,6 @@ function saveTextColor(textcolor) {
     });
 }
 
-//document.addEventListener("DOMContentLoaded", restoreOptions);
 
 $("#themeBg .colorContainer").click( function() {
     let bg = themeBackgrounds[$("input[name='themeBg']", this).val()];
@@ -244,7 +237,7 @@ addEventListener('DOMContentLoaded', (event) => {
       });
     }
 
-    showTabs("tabs", 1);
+    showTabs("tabs", 0);
     restoreOptions();
   
   });

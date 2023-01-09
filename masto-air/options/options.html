@@ -12,105 +12,103 @@
   <body>
     <div class="wrapper">
 
-            <!--<form>-->
-                <h1>Mastodon Air</h1>
+        <h1>Mastodon Air</h1>
 <!-- Preview area -->   
 
-            <div>
-                <div id="preview">
-                    <div class="preview-leftcolumn">
-                        <div class="preview-textarea"><div class="preview-textarea-counter">500</div></div>
-                        <a class="accentBackground preview-button" onclick="return false;" href="#">Publish!</a>
-                    </div>
-                    <div class="preview-rightcolumn">
-                        <div class="preview-header">
-                            <div class="preview-avatar"></div>
-                            <div class="preview-user">
-                                <b>This is preview</b><br>
-                                <span>@mastodonair</span>
-                            </div>
-                        </div>
-                        <br><a class="accentColor" onclick="return false;" href=""#">@<span>mastodon_user</span></a> Sure, I'd love to set up my favorite colors for my Mastodon page! For the background, I think I'll go with a <span id="selectedColor"></span>.<br>
-                        For the accent color, I'll choose a <span id="selectedAccent" class="accentColor"></span> to add some contrast.<br>
-                        
-                    </div>
+        <div>
+            <div id="preview">
+                <div class="preview-leftcolumn">
+                    <div class="preview-textarea"><div class="preview-textarea-counter">500</div></div>
+                    <a class="accentBackground preview-button" onclick="return false;" href="#">Publish!</a>
                 </div>
-            </div>    
+                <div class="preview-rightcolumn">
+                    <div class="preview-header">
+                        <div class="preview-avatar"></div>
+                        <div class="preview-user">
+                            <b>This is preview</b><br>
+                            <span>@mastodonair</span>
+                        </div>
+                    </div>
+                    <br><a class="accentColor" onclick="return false;" href=""#">@<span>mastodon_user</span></a> Sure, I'd love to set up my favorite colors for my Mastodon page! For the background, I think I'll go with a <span id="selectedColor"></span>.<br>
+                    For the accent color, I'll choose a <span id="selectedAccent" class="accentColor"></span> to add some contrast.<br>
+                    
+                </div>
+            </div>
+        </div>    
 <!-- Option tabs -->
-                <div id="tabs" class="tabs">
-                    <div class="tabRow">
+        <div id="tabs" class="tabs">
+            <div class="tabRow">
 
-                        <ul>
-                            <li class="tab">General</li>
-                            <li class="tab">Background</li>
-                            <li class="tab">Accent color</li>
-                            <li class="tab">Text</li>
-                        </ul>
-                        
-                    </div>
-                    <div class="tabContainer">
+                <ul>
+                    <li class="tab">General</li>
+                    <li class="tab">Background</li>
+                    <li class="tab">Accent color</li>
+                    <li class="tab">Text</li>
+                </ul>
+                
+            </div>
+            <div class="tabContainer">
 <!-- General options -->
-                        <div class="tabContent">
-                            <div class="formRow">
-                                <div class="label">
-                                    <label for="airEnabled">Mastodon Air is enabled</label>
-                                </div>
-                                <div class="option">
-                                    <input type="checkbox" id="airEnabled" name="airEnabled" />
-                                </div>
-                            </div>
-                            <div class="formRow">
-                                <div class="label">
-                                    <label for="logoAccent">Logo color is same as accent</label>
-                                </div>
-                                <div class="option">
-                                    <input type="checkbox" id="logoAccent" name="logoAccent" />
-                                </div>
-                            </div>
-                            <div class="formRow">
-                                <div class="label"><label for="hideTrends">Hide trends</label></div>
-                                <div class="option">
-                                    <input type="checkbox" id="hideTrends" name="hideTrends" />
-                                </div>
-                            </div>
-                            <div class="formRow">
-                                <div class="label"><label for="hideAboutLinks">Hide About links</label></div>
-                                <div class="option">
-                                    <input type="checkbox" id="hideAboutLinks" name="hideAboutLinks" />
-                                </div>
-                            </div>
-                            <div class="formRow">
-                                <div class="label"><label for="keepWideText">Textarea is wider even if Air is disabled</label></div>
-                                <div class="option">
-                                    <input type="checkbox" id="keepWideText" name="keepWideText" />
-                                </div>
-                            </div>
+                <div class="tabContent">
+                    <div class="formRow">
+                        <div class="label">
+                            <label for="airEnabled">Mastodon Air is enabled</label>
                         </div>
-<!-- Background option -->
-                        <div class="formRow tabContent" id="themeBg"><div class="tabNote">Changing background color will change accent and text colors according to it's default settings.</div></div>
-<!-- Accent color option -->
-                        <div class="formRow tabContent" id="accentColor"><div class="tabNote">Accent color is used for buttons, links and some other elements in the page.</div></div>
-<!-- Text options -->
-                        <div class="tabContent">
-                            <div class="formRow">
-                                <div class="label">Text color</div>
-                                <div class="option" id="textColor">
-                                    <label class="modeContainer"><input type="radio" name="mode" value="dark" /><span class="modeCheck" title="Dark text">Dark</span></label>
-                                    <label class="modeContainer"><input type="radio" name="mode" value="light" /><span class="modeCheck" title="Light text">Light</span></label>
-                                </div>
-                            </div>
+                        <div class="option">
+                            <input type="checkbox" id="airEnabled" name="airEnabled" />
                         </div>
-                        
+                    </div>
+                    <div class="formRow">
+                        <div class="label">
+                            <label for="logoAccent">Logo color is same as accent</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" id="logoAccent" name="logoAccent" />
+                        </div>
+                    </div>
+                    <div class="formRow">
+                        <div class="label"><label for="hideTrends">Hide trends</label></div>
+                        <div class="option">
+                            <input type="checkbox" id="hideTrends" name="hideTrends" />
+                        </div>
+                    </div>
+                    <div class="formRow">
+                        <div class="label"><label for="hideAboutLinks">Hide About links</label></div>
+                        <div class="option">
+                            <input type="checkbox" id="hideAboutLinks" name="hideAboutLinks" />
+                        </div>
+                    </div>
+                    <div class="formRow">
+                        <div class="label"><label for="keepWideText">Textarea is wider even if Air is disabled</label></div>
+                        <div class="option">
+                            <input type="checkbox" id="keepWideText" name="keepWideText" />
+                        </div>
                     </div>
                 </div>
+<!-- Background option -->
+                <div class="formRow tabContent" id="themeBg"><div class="tabNote">Changing background color will change accent and text colors according to it's default settings.</div></div>
+<!-- Accent color option -->
+                <div class="formRow tabContent" id="accentColor"><div class="tabNote">Accent color is used for buttons, links and some other elements in the page.</div></div>
+<!-- Text options -->
+                <div class="tabContent">
+                    <div class="formRow">
+                        <div class="label">Text color</div>
+                        <div class="option" id="textColor">
+                            <label class="modeContainer"><input type="radio" name="mode" value="dark" /><span class="modeCheck" title="Dark text">Black</span></label>
+                            <label class="modeContainer"><input type="radio" name="mode" value="light" /><span class="modeCheck" title="Light text">White</span></label>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
 <!-- Additional info -->
-                <p>Mastodon Air is completely free to use, but if you would like to show your appreciation, you can buy me a coffee.
-                <span class="thankYou center">Thank you for your support!</span>
-                </p>
-                <p class="center">
-                <a href="http://buymeacoffee.com/magnusarge" target="_blank"><img class="coffee" src="../images/coffee.png" alt="Buy me coffee" /></a></p>
+        <p>Mastodon Air is completely free to use, but if you would like to show your appreciation, you can buy me a coffee.
+        <span class="thankYou center">Thank you for your support!</span>
+        </p>
+        <p class="center">
+        <a href="http://buymeacoffee.com/magnusarge" target="_blank"><img class="coffee" src="../images/coffee.png" alt="Buy me coffee" /></a></p>
             
-            <!--</form>-->
 
     </div>
     <script src="../js/jquery-3.6.2.slim.min.js"></script>

@@ -10,7 +10,7 @@
     overflow: hidden;
 }
 .tabContainer {
-    background: aliceblue;
+    background: white;
     border: 1px solid silver;
     min-height: 200px;
     margin: -1px 0 0;
@@ -39,7 +39,7 @@
 }
 .tab.active {
     color: dodgerblue;
-    background: aliceblue;
+    background: white;
     border-bottom: none;
     padding-bottom: 13px;
 }
@@ -51,8 +51,8 @@
     border-top-right-radius: 3px;
 }
 .tabNote {
-    background: lavender;
+    background: linen;
     padding: 24px;
     margin-bottom: 24px;
-    border-radius: 3px;
+    border-radius: 6px;
 }

@@ -18,7 +18,7 @@
       "css": ["masto-air/styles/air-disabled.css",
               "masto-air/styles/styles.css",
               "masto-air/styles/base.css",
-              "masto-air/styles/logo.css",
+              "masto-air/styles/svg.css",
               "masto-air/styles/multi-column.css",
               "masto-air/styles/screen-size.css",
               "masto-air/styles/theme-colors.css",
