@@ -1,0 +1,58 @@
+.tabs {
+    margin: 24px 0;
+    color: black;
+    width: 100%;
+}
+.tabRow ul {
+    margin: 0 0 -1px;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+.tabContainer {
+    background: aliceblue;
+    border: 1px solid silver;
+    min-height: 200px;
+    margin: -1px 0 0;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+}
+.tabContent {
+    margin-bottom: 24px;
+    min-height: 400px;
+}
+.tab {
+    color: gray;
+    border: 1px solid silver;
+    background: white;
+    border-left: none;
+    text-decoration: none;
+    cursor: pointer;
+    float: left;
+    padding: 12px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.tab:hover {
+    color: dodgerblue;
+}
+.tab.active {
+    color: dodgerblue;
+    background: aliceblue;
+    border-bottom: none;
+    padding-bottom: 13px;
+}
+.tab:nth-child(1) {
+    border-left: 1px solid silver;
+    border-top-left-radius: 3px;
+}
+.tab:nth-last-child(1) {
+    border-top-right-radius: 3px;
+}
+.tabNote {
+    background: lavender;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 3px;
+}

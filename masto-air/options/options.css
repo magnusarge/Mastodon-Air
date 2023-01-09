@@ -1,0 +1,174 @@
+@font-face {
+    font-family: mastodon-font-sans-serif;
+    src: url("../fonts/roboto.woff2");
+}
+body {
+    font-family: "mastodon-font-sans-serif",sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+}
+form {
+    width: 600px;
+    margin: 0 auto;
+}
+h1 {
+    padding: 12px;
+    padding-left: 58px;
+    margin: 24px 0;
+    background-image: url(../images/icon64.png);
+    background-repeat: no-repeat;
+    background-size: 48px;
+}
+h2 {
+    margin-bottom: 6px;
+}
+button {
+    padding: 18px;
+}
+a, a:hover {
+    text-decoration: none;
+}
+a span:hover {
+    text-decoration: underline;
+}
+.thankYou {
+    font-size: 1.4em;
+    font-weight: 500;
+    display: block;
+    padding: 6px;
+    margin: 12px 0 0;
+}
+.wrapper {
+    max-width: 780px;
+    padding: 0 24px;
+    margin: 0 auto;
+}
+.section {
+    padding: 24px;
+}
+.center {
+    text-align: center;
+}
+.buttons {
+    margin: 12px auto;
+}
+
+
+.formRow {
+    margin: 24px;
+}
+.formRow .label {
+    float: left;
+    width: 300px;
+}
+.formRow .option {
+    margin-left: 310px;
+}
+.formRow .option input.wide {
+    width: 100%;
+}
+
+
+img.coffee {
+    max-width: 180px;
+    border-radius: 8px;
+    margin: 12px auto;
+    border: 6px solid gold;
+}
+.colorContainer {
+    position: relative;
+    display: inline-table;
+    height: 28px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0 16px;
+}
+
+
+/* Hide the default radio button */
+.colorContainer input {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+.themeCheck {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 32px;
+    width: 32px;
+    background:#eff3f5;
+}
+/* .colorContainer input ~ .themeCheck {
+    border: 1px solid transparent;
+} */
+/* .colorContainer input:hover ~ .themeCheck {
+    border-top-color: lightgray;
+} */
+/* .colorContainer input:checked ~ .themeCheck {
+    border: 1px solid blue;
+} */
+.themeCheck:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.colorContainer input:checked ~ .themeCheck:after {
+    display: block;
+}
+.colorContainer .themeCheck:after {
+    bottom: -8px;
+    right: -8px;
+    left: -8px;
+    top: -8px;
+    background: inherit;
+    border: 1px solid dodgerblue;
+    z-index: 10;
+    border-radius: 50%;
+}
+#themeDark .colorContainer .themeCheck:after {
+    background: gold;
+}
+
+/* Text color was part of mode, hence the name... */
+.modeContainer {
+    position: relative;
+    display: inline-table;
+    height: 22px;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+}
+.modeContainer input {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+.modeCheck {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 60px;
+    padding: 8px;
+    border-radius: 6px;
+}
+.modeCheck:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.modeContainer input:checked ~ .modeCheck:after {
+    display: block;
+}
+.modeContainer .modeCheck:after {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    border: 1px solid dodgerblue;
+    z-index: 10;
+    border-radius: 6px;
+}
+

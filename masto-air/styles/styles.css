@@ -31,6 +31,7 @@ body.air.theme-mastodon-light #mastodon .poll__input:active,
 body.air.theme-mastodon-light #mastodon .poll__input:focus {
   background: rgba(0,0,0,.8);
 }
+body.air #mastodon .drawer__tab,
 body.air #mastodon .attachment-list.compact .fa,
 body.air #mastodon .account__display-name strong,
 body.air #mastodon .status__display-name strong,
@@ -91,6 +92,7 @@ body.air #mastodon .muted .status__content a,
 body.air #mastodon .muted .status__content p,
 body.air #mastodon .muted .status__display-name strong,
 body.air #mastodon .column-header__button,
+body.air #mastodon .column-header,
 body.air #mastodon .tabs-bar__wrapper,
 body.air #mastodon .status__content,
 body.air #mastodon .status__prepend,
@@ -105,6 +107,7 @@ body.air #mastodon .account-card__title .display-name bdi,
 body.air #mastodon .column-subheading {
     color: white;
 }
+body.air.theme-mastodon-light #mastodon .drawer__tab,
 body.air.theme-mastodon-light #mastodon .attachment-list.compact .fa,
 body.air.theme-mastodon-light #mastodon .account__display-name strong,
 body.air.theme-mastodon-light #mastodon .status__display-name strong,
@@ -154,6 +157,7 @@ body.air.theme-mastodon-light #mastodon .muted .status__display-name strong,
 body.air.theme-mastodon-light #mastodon .status__content,
 body.air.theme-mastodon-light #mastodon .tabs-bar__wrapper,
 body.air.theme-mastodon-light #mastodon .column-header__button,
+body.air.theme-mastodon-light #mastodon .column-header,
 body.air.theme-mastodon-light #mastodon .status__prepend,
 body.air.theme-mastodon-light #mastodon .status__display-name,
 body.air.theme-mastodon-light #mastodon .status__display-name strong,
@@ -234,7 +238,8 @@ body.air #mastodon .follow_requests-unlocked_explanation {
 body.air #mastodon .account__header {
   background: none;
 }
-body.air #mastodon .account-card__header {
+body.air #mastodon .account-card__header,
+body.air #mastodon .account__header__image {
   background: rgba(255, 255, 255, 0.2);
 }
 body.air.theme-mastodon-light #mastodon .announcements,

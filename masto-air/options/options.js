@@ -25,39 +25,68 @@ function restoreOptions() {
         let themeBg = themeBackgrounds.DefaultDark;
         if ( result.themeBg ) {
             themeBg = result.themeBg;
-        }
+        } else chrome.storage.local.set({themeBg: themeBg});
         $(`#themeBg input[value='${themeBg.title}']`).prop( "checked", true );
         previewBg(themeBg);
     }
     function setTextColor(result) {
-        let val = result.textColor || "light";
+        let val = "light";
+        if ( result.textColor ) {
+            val = result.textColor;
+        } else chrome.storage.local.set({textColor: val});
         $(`#textColor input[value='${val}']`).prop( "checked", true );
         previewText(val);
     }
     function setAccentColor(result) {
-        let val = result.accentColor || "SlateBlue";
+        let val = themeBackgrounds.SlateBlue;
+        if ( result.accentColor ) {
+            val = result.accentColor;
+        } else chrome.storage.local.set({accentColor: val});
         $(`#accentColor input[value='${val.id}']`).prop( "checked", true );
         previewAccent(val);
     }
+    function setLogoAccent(result) {
+        let val = false;
+        if ( result.logoAccent || result.logoAccent == false ) {
+            val = result.logoAccent;
+        } else chrome.storage.local.set({logoAccent: val});
+        $("#logoAccent").prop( "checked", val );
+    }
+    function setKeepWideText(result) {
+        let val = true;
+        if ( result.keepWideText || result.keepWideText == false ) {
+            val = result.keepWideText;
+        } else chrome.storage.local.set({keepWideText: val});
+        $("#keepWideText").prop( "checked", val );
+    }
     function setHideTrends(result) {
-        let val = result.hideTrends || false;
+        let val = false;
+        if ( result.hideTrends || result.hideTrends == false ) {
+            val = result.hideTrends;
+        } else chrome.storage.local.set({hideTrends: val});
         $( "#hideTrends" ).prop( "checked", val );
     }
     function setHideAboutLinks(result) {
-        let val = result.hideAboutLinks || false;
+        let val = false;
+        if ( result.hideAboutLinks || result.hideAboutLinks == false ) {
+            val = result.hideAboutLinks;
+        } else chrome.storage.local.set({hideAboutLinks: val}); 
         $( "#hideAboutLinks" ).prop( "checked", val );
     }
     function setAirEnabled(result) {
-        if ( result.airEnabled == 'undefined' ) {
-            chrome.storage.local.set({airEnabled: true});
-        }
-        let val = result.airEnabled || true;
+        let val = true;
+        if ( result.airEnabled || result.airEnabled == false ) {
+            val = result.airEnabled;
+        } else chrome.storage.local.set({airEnabled: val}); 
+
         $( "#airEnabled" ).prop( "checked", val );
     }
-
     function onError(error) {
         console.log(`Error: ${error}`);
     }
+
+    let gettingAirEnabled = chrome.storage.local.get("airEnabled");
+    gettingAirEnabled.then(setAirEnabled, onError);
   
     let gettingThemeBg = chrome.storage.local.get("themeBg");
     gettingThemeBg.then(setCurrentThemeBg, onError);
@@ -68,19 +97,22 @@ function restoreOptions() {
     let gettingAccentColor = chrome.storage.local.get("accentColor");
     gettingAccentColor.then(setAccentColor, onError);
 
+    let gettingLogoAccent = chrome.storage.local.get("logoAccent");
+    gettingLogoAccent.then(setLogoAccent, onError);
+
     let gettingHideTrends = chrome.storage.local.get("hideTrends");
     gettingHideTrends.then(setHideTrends, onError);
 
     let gettingHideAboutLinks = chrome.storage.local.get("hideAboutLinks");
     gettingHideAboutLinks.then(setHideAboutLinks, onError);
 
-    let gettingAirEnabled = chrome.storage.local.get("airEnabled");
-    gettingAirEnabled.then(setAirEnabled, onError);
+    let gettingKeepWideText = chrome.storage.local.get("keepWideText");
+    gettingKeepWideText.then(setKeepWideText, onError);
 
 }
 
 function previewBg(bg) {
-    $("#selectedColor").text(bg.title);
+    $("#selectedColor").text("#"+bg.title);
     $("#preview").css("background",bg.color);
     $("body").css("background", bg.color);
     $("#preview").css("border-color",bg.accent);
@@ -93,8 +125,9 @@ function previewText(color) {
     $("body").css("color", color=="dark"?"black":"white");
 }
 function previewAccent(accent) {
-    $("#selectedAccent").text(accent.title);
+    $("#selectedAccent").text("#"+accent.title);
     $(".accentColor").css("color", accent.color);
+    $("#selectedColor").css("color", accent.color);
     $(".accentBackground").css("background", accent.color);
     $(".accentBackground").css("color", accent.text == "dark" ? "black" : "white");
 }
@@ -115,17 +148,8 @@ function saveTextColor(textcolor) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", restoreOptions);
+//document.addEventListener("DOMContentLoaded", restoreOptions);
 
-// $("#selectedAccent").click( function() {
-//     let text = $("#selectedAccent").text();
-//     let textcolor = $("#selectedAccent").css("color");
-//     navigator.clipboard.writeText(text);
-//     $("#selectedAccent").css("color","silver");
-//     setTimeout(function() {
-//         $("#selectedAccent").css("color",textcolor);
-//       }, 100);
-// })
 $("#themeBg .colorContainer").click( function() {
     let bg = themeBackgrounds[$("input[name='themeBg']", this).val()];
     $(`#textColor input[value='${bg.text}']`).prop( "checked", true );
@@ -148,31 +172,79 @@ $("#textColor .modeContainer").click( function() {
     saveTextColor(textcolor);
     previewText(textcolor);
 });
+$("#logoAccent").click( function() {
+    chrome.storage.local.set({
+        logoAccent: $("#logoAccent:checked").length ? true : false
+    });
+});
 $("#hideTrends").click( function() {
     chrome.storage.local.set({
-        hideTrends: $("#hideTrends:checked").val()
+        hideTrends: $("#hideTrends:checked").length ? true : false
     });
 });
 $("#hideAboutLinks").click( function() {
     chrome.storage.local.set({
-        hideAboutLinks: $("#hideAboutLinks:checked").val()
+        hideAboutLinks: $("#hideAboutLinks:checked").length ? true : false
     });
 });
 $("#airEnabled").click( function() {
     chrome.storage.local.set({
-        airEnabled: $("#airEnabled:checked").val()
+        airEnabled: $("#airEnabled:checked").length ? true : false
+    });
+});
+$("#keepWideText").click( function() {
+    chrome.storage.local.set({
+        keepWideText: $("#keepWideText:checked").length ? true : false
     });
 });
 
-$(document).ready(function(){
-    $(".tabContent").css({"display":"none","visibility":"hidden"});
-    $("#tabContainer .tabContent:nth-child(1)").css({"display":"block","visibility":"visible"});
-    $("a.tab").click( function(e) {
-        var nth = $(this).index()+1;
-        //console.log("This is is "+nth);
-        $("a.tab").removeClass("active");
-        $(this).addClass("active");
-        $(".tabContent").css({"display":"none","visibility":"hidden"});
-        $("#tabContainer .tabContent:nth-child("+nth+")").css({"display":"block","visibility":"visible"});
-    });
-});
+
+addEventListener('DOMContentLoaded', (event) => {
+
+    function showTabs(ids, index) {
+      
+      // Convert ids to array if needed
+      if ( Array.isArray(ids) == false ) {
+        ids = new Array(ids);
+      }
+      // For each tab container there is
+      ids.forEach( ( id ) => {
+        
+        let container = document.getElementById(id);
+        
+        if ( container ) {
+          
+          let tabs = container.querySelectorAll( ".tab" );
+          let tabContents = container.querySelectorAll( ".tabContent" );
+          
+          // If tabs and contents count differs, we want smaller number, otherwise we run out of bounds.
+          let maxIterate = Math.min(tabs.length, tabContents.length);
+          //console.log(maxIterate);
+  
+          // If selected tab has bigger nuber than we can give
+          index = index > maxIterate ? maxIterate : index;
+          
+          for ( let i = 0; i < maxIterate; i++ ) {
+            let tab = tabs[i];
+            let content = tabContents[i];
+  
+            tab.classList.remove("active");
+            content.style.display = "none";
+            content.style.visibility = "hidden";
+  
+            tabs[i].onclick = function() { showTabs(id, i) };
+  
+            if ( i == index ) {
+              tab.classList.add("active");
+              content.style.display = "block";
+              content.style.visibility = "visible";
+            }
+          }
+        }
+      });
+    }
+
+    showTabs("tabs", 1);
+    restoreOptions();
+  
+  });

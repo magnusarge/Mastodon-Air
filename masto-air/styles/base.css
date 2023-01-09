@@ -36,6 +36,12 @@ body.air #mastodon .navigation-bar a {
 body.air #mastodon .column-link {
     padding: 18px;
 }
+body.air #mastodon .column-link.column-link--logo {
+    margin-bottom: 24px;   
+}
+body.air #mastodon .navigation-panel {
+    margin-top: 24px;   
+}
 body.air #mastodon .column-link__icon {
     margin-right: 16px;
 }
@@ -181,7 +187,6 @@ body.air #mastodon .compose-form__poll-wrapper .poll__footer {
 }
 body.air #mastodon .compose-panel {
     column-width: auto;
-    -moz-column-width: 400px;
     width: auto; 
     max-width: 500px;
 }
@@ -243,6 +248,9 @@ body.air #mastodon .account__header__bio .account__header__content,
 body.air #mastodon .account__header__account-note {
     margin-left: 18px;
 }
+body.air #mastodon .account__header__account-note__content {
+    overflow: hidden;
+}
 body.air #mastodon .account__header__bio .account__header__fields {
     border-radius: 0;
 }
@@ -294,14 +302,17 @@ body.air #mastodon .search__input,
 body.air #mastodon .autosuggest-textarea__textarea,
 body.air #mastodon .spoiler-input__input,
 body.air #mastodon .reply-indicator,
-body.air #mastodon .trends__item__name,
 body.air #mastodon .trends__item__name a,
+body.air #mastodon .trends__item__name a span,
 body.air #mastodon .account .account__display-name,
 body.air #mastodon .account__header__tabs__name h1 {
     font-size: 18px;
 }
 body.air #mastodon .account__header__tabs__name h1 small,
 body.air #mastodon .account__header__content,
+body.air #mastodon .getting-started__trends .trends__item__name a,
+body.air #mastodon .getting-started__trends .trends__item__name a span,
+body.air #mastodon .trends__item__name span,
 body.air #mastodon .account__header__fields {
     font-size: 16px;
 }
@@ -371,4 +382,7 @@ body.air #mastodon input[type="text"] {
 }
 body.air #mastodon .explore__search-header {
     background: none;
+}
+body.air #mastodon .server-banner .button.button-secondary {
+    border: 0;
 }

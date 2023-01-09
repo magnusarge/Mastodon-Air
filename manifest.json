@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Mastodon Air",
   "description": "Mastodon clean theme.",
-  "version": "2.1",
+  "version": "2.1.0",
   "icons": {
       "16": "masto-air/images/icon16.png",
       "32": "masto-air/images/icon32.png",
@@ -12,13 +12,11 @@
       "256": "masto-air/images/icon256.png",
       "512": "masto-air/images/icon512.png"
   },
-  "background": {
-    "scripts": ["masto-air/js/background.js"]
-  },
   "content_scripts": [
     {
       "matches": ["https://*/*"],
-      "css": ["masto-air/styles/styles.css",
+      "css": ["masto-air/styles/air-disabled.css",
+              "masto-air/styles/styles.css",
               "masto-air/styles/base.css",
               "masto-air/styles/logo.css",
               "masto-air/styles/multi-column.css",
@@ -27,6 +25,7 @@
               "masto-air/styles/accent.css"],
       "js": ["masto-air/js/browser.js",
              "masto-air/js/jquery-3.6.2.slim.min.js",
+             "masto-air/js/themebackgrounds.js",
              "masto-air/js/content.js"],
       "run_at": "document_idle"
     }

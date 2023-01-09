@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Mastodon Air",
   "description": "Mastodon clean theme.",
-  "version": "2.1",
+  "version": "2.1.0",
   "icons": {
       "16": "images/icon16.png",
       "32": "images/icon32.png",
@@ -15,7 +15,8 @@
     "content_scripts": [
       {
         "matches": ["https://*/*"],
-        "css": ["styles/styles.css",
+        "css": ["styles/air-disabled.css",
+                "styles/styles.css",
                 "styles/base.css",
                 "styles/logo.css",
                 "styles/multi-column.css",
@@ -23,8 +24,9 @@
                 "styles/theme-colors.css",
                 "styles/accent.css"],
         "js": ["js/browser.js",
-              "js/jquery-3.6.2.slim.min.js",
-              "js/content.js"],
+               "js/jquery-3.6.2.slim.min.js",
+               "js/content.js",
+               "js/themebackgrounds.js"],
         "run_at": "document_end"
       }
     ],
