@@ -24,6 +24,10 @@ body.air.theme-mastodon-light #mastodon .poll__input:active,
 body.air.theme-mastodon-light #mastodon .poll__input:focus {
   background: rgba(0,0,0,.8);
 }
+body.air #mastodon .server-banner__number-label,
+body.air #mastodon .server-banner h4,
+body.air #mastodon .server-banner__introduction,
+body.air #mastodon .sign-in-banner p,
 body.air #mastodon .drawer__tab,
 body.air #mastodon .attachment-list.compact .fa,
 body.air #mastodon .account__display-name strong,
@@ -100,6 +104,10 @@ body.air #mastodon .account-card__title .display-name bdi,
 body.air #mastodon .column-subheading {
     color: white;
 }
+body.air.theme-mastodon-light #mastodon .server-banner__number-label,
+body.air.theme-mastodon-light #mastodon .server-banner h4,
+body.air.theme-mastodon-light #mastodon .server-banner__introduction,
+body.air.theme-mastodon-light #mastodon .sign-in-banner p,
 body.air.theme-mastodon-light #mastodon .drawer__tab,
 body.air.theme-mastodon-light #mastodon .attachment-list.compact .fa,
 body.air.theme-mastodon-light #mastodon .account__display-name strong,
