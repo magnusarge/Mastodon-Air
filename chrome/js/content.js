@@ -125,8 +125,13 @@ function addOptionsLink() {
 }
 function logoAccentColor(accentcolor) {
     if ( accentcolor == false || air.enabled == false ) accentcolor = air.logoFill[0];
+    // Safari has issue with updating svg styles from css
+    $("symbol#logo-symbol-wordmark path:nth-child(1)").css("fill",accentcolor);
+
     let cssText = `symbol#logo-symbol-wordmark path:nth-child(1) {fill:${accentcolor}}`;
-    toggleStyles("air-logo-accent", cssText);
+    setTimeout(function() {
+      toggleStyles("air-logo-accent", cssText);
+    }, 1000);
 }
 function logoTextColor(textcolor) {
   let eyecolor = textcolor;
@@ -134,11 +139,17 @@ function logoTextColor(textcolor) {
     eyecolor = air.logoFill[1];
     textcolor = air.logoFill[2];
   }
+  // Safari has issue with updating svg styles from css
+  $("symbol#logo-symbol-wordmark path:nth-child(2)").css("fill",eyecolor);
+  $("symbol#logo-symbol-wordmark path:nth-child(3)").css("fill",textcolor);
+  
   let cssText = `
   symbol#logo-symbol-wordmark path:nth-child(2) {fill:${eyecolor}}
   symbol#logo-symbol-wordmark path:nth-child(3) {fill:${textcolor}}
   `;
-    toggleStyles("air-logo-text", cssText);
+    setTimeout(function() {
+      toggleStyles("air-logo-text", cssText);
+    }, 1000);
 }
 if ( isMastodon ) {
   // Add options link regardless Air is enabled or not, logged in or not.
