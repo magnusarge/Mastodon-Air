@@ -37,7 +37,7 @@
   "permissions": ["storage"],
   "browser_specific_settings": {
     "gecko": {
-      "id": "mastodonair@arge.ee"
+      "id": "{7b7e5e12-60e0-46f8-a356-73100ea87de0}"
     }
   }
 }
