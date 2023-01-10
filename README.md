@@ -3,7 +3,9 @@ Mastodon Air is the browser extension that improves the look and usability of Ma
 
 One of the standout features of Mastodon Air is its enhanced text area for posting. The text area is larger and more accessible, making it easier to compose and read your posts.
 
-For Firefox, you'll need manifest.json in the root of project plus 'chrome' folder.
-For Chrome and Edge (and Safari), root folder is 'chrome'.
+<b>For Firefox, you'll need manifest.json in the root of project plus 'chrome' folder.<br>
+For Chrome and Edge (and Safari), root folder is 'chrome'.</b>
+
+In 'releases' folder are compressed files for downloading.
 
 https://arge.ee/mastodon-air
