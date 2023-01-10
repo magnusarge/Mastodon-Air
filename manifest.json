@@ -4,35 +4,35 @@
   "description": "Mastodon clean theme.",
   "version": "2.1.0",
   "icons": {
-      "16": "masto-air/images/icon16.png",
-      "32": "masto-air/images/icon32.png",
-      "48": "masto-air/images/icon48.png",
-      "64": "masto-air/images/icon64.png",
-      "128": "masto-air/images/icon128.png",
-      "256": "masto-air/images/icon256.png",
-      "512": "masto-air/images/icon512.png"
+      "16": "chrome/images/icon16.png",
+      "32": "chrome/images/icon32.png",
+      "48": "chrome/images/icon48.png",
+      "64": "chrome/images/icon64.png",
+      "128": "chrome/images/icon128.png",
+      "256": "chrome/images/icon256.png",
+      "512": "chrome/images/icon512.png"
   },
   "content_scripts": [
     {
       "matches": ["https://*/*"],
-      "css": ["masto-air/styles/air-disabled.css",
-              "masto-air/styles/styles.css",
-              "masto-air/styles/base.css",
-              "masto-air/styles/svg.css",
-              "masto-air/styles/multi-column.css",
-              "masto-air/styles/screen-size.css",
-              "masto-air/styles/theme-colors.css",
-              "masto-air/styles/accent.css"],
-      "js": ["masto-air/js/browser.js",
-             "masto-air/js/jquery-3.6.2.slim.min.js",
-             "masto-air/js/themebackgrounds.js",
-             "masto-air/js/content.js"],
+      "css": ["chrome/styles/air-disabled.css",
+              "chrome/styles/styles.css",
+              "chrome/styles/base.css",
+              "chrome/styles/svg.css",
+              "chrome/styles/multi-column.css",
+              "chrome/styles/screen-size.css",
+              "chrome/styles/theme-colors.css",
+              "chrome/styles/accent.css"],
+      "js": ["chrome/js/browser.js",
+             "chrome/js/jquery-3.6.2.slim.min.js",
+             "chrome/js/themebackgrounds.js",
+             "chrome/js/content.js"],
       "run_at": "document_idle"
     }
   ],
-  "web_accessible_resources": ["masto-air/options/options.html"],
+  "web_accessible_resources": ["chrome/options/options.html"],
   "options_ui": {
-    "page": "masto-air/options/options.html"
+    "page": "chrome/options/options.html"
   },
   "permissions": ["storage"],
   "browser_specific_settings": {
