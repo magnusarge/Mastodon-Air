@@ -1,4 +1,6 @@
 
+body.air #mastodon .account__section-headline button,
+body.air #mastodon .notification__filter-bar button
 body.air #mastodon .tabs-bar__wrapper {
   background: none;
 }
