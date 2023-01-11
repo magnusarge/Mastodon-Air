@@ -155,13 +155,13 @@ body.air #mastodon .navigation-bar a {
     font-weight: normal;
 }
 body.air #mastodon .column-link {
-    padding: 18px;
+    padding: 15px 18px;
 }
 body.air #mastodon .column-link.column-link--logo {
-    margin-bottom: 24px;   
+    margin-bottom: 0;   
 }
 body.air #mastodon .navigation-panel {
-    margin-top: 24px;   
+    margin-top: 0;   
 }
 body.air #mastodon .column-link__icon {
     margin-right: 16px;
@@ -192,7 +192,7 @@ body.air #mastodon .account-card__header {
     padding: 0;
 }
 body.air #mastodon .getting-started__trends {
-    margin-bottom: 24px;
+    margin-bottom: 0;
 }
 body.air #mastodon .audio-player,
 body.air #mastodon .report-dialog-modal__textarea,
