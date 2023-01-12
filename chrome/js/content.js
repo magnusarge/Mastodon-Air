@@ -375,6 +375,11 @@ function airIsEnabled () {
       body.air #mastodon .button,
       body.air #mastodon .button.button-alternative-2
         {color: ${accentColor.text} !important;}
+      @media screen and (max-width: 889px) {
+        body.air #mastodon .column-link--transparent.active {
+          color: ${accentColor.color} !important;
+        }
+      }
         `;
       toggleStyles("air-accent", accentStyles);
     }

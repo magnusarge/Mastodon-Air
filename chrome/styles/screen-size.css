@@ -1,3 +1,13 @@
+@media screen and (max-width: 889px) {
+  body.air #mastodon .column-link--transparent.active {
+    background: transparent;
+  }
+}
+@media screen and (max-width: 1174px) {
+  body.air #mastodon .navigation-panel {
+    margin-top: 24px;
+  }
+}
 @media screen and (max-width: 1259px) {
   body.air #mastodon .autosuggest-textarea__textarea {
       padding: 10px !important;
