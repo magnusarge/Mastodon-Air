@@ -1,4 +1,7 @@
-body.air #mastodon .ui,
+body.air #mastodon .ui__header__logo {
+    padding: 0;
+    margin: 0 32px;
+  }
 body.air #mastodon .announcements {
     margin-top: 12px;
 }
@@ -89,6 +92,10 @@ body.air #mastodon .account__header__extra__links a.active {
 }
 body.air #mastodon .account__header__bar .avatar .account__avatar img {
     border-radius: 50%;
+}
+body.air #mastodon .account__avatar {
+    width: 46px;
+    height: 46px;
 }
 body.air #mastodon .button,
 body.air #mastodon .setting-text,
@@ -204,11 +211,12 @@ body.air #mastodon .compose-form__poll-wrapper select {
     padding: 12px;
 }
 body.air #mastodon .reply-indicator {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 body.air #mastodon .search {
     margin: 10px 18px 24px;
 }
+body.air #mastodon .load-more:hover,
 body.air #mastodon .setting-text__wrapper {
     background: none;
 }
@@ -311,7 +319,8 @@ body.air #mastodon .account__header__bio .account__header__fields dt,
 body.air #mastodon .account__section-headline a,
 body.air #mastodon .account__section-headline button,
 body.air #mastodon .notification__filter-bar a,
-body.air #mastodon .notification__filter-bar button {
+body.air #mastodon .notification__filter-bar button,
+body.air #mastodon .compose-form .compose-form__warning {
     font-size: 14px;
 }
 body.air #mastodon .account-timeline__header {

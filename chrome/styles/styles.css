@@ -26,6 +26,8 @@ body.air.theme-mastodon-light #mastodon .poll__input:active,
 body.air.theme-mastodon-light #mastodon .poll__input:focus {
   background: rgba(0,0,0,.8);
 }
+body.air #mastodon .load-more,
+body.air #mastodon .compose-form .compose-form__warning a,
 body.air #mastodon .server-banner__number-label,
 body.air #mastodon .server-banner h4,
 body.air #mastodon .server-banner__introduction,
@@ -106,6 +108,8 @@ body.air #mastodon .account-card__title .display-name bdi,
 body.air #mastodon .column-subheading {
     color: white;
 }
+body.air.theme-mastodon-light #mastodon .load-more,
+body.air.theme-mastodon-light #mastodon .compose-form .compose-form__warning a,
 body.air.theme-mastodon-light #mastodon .server-banner__number-label,
 body.air.theme-mastodon-light #mastodon .server-banner h4,
 body.air.theme-mastodon-light #mastodon .server-banner__introduction,
@@ -172,6 +176,20 @@ body.air.theme-mastodon-light #mastodon .icon-button,
 body.air.theme-mastodon-light #mastodon .account-card__title .display-name bdi,
 body.air.theme-mastodon-light #mastodon .column-subheading {
     color: black;
+}
+body.air #mastodon .status__content__spoiler-link {
+  color: black;
+  background-color: rgba(255,255,255,.5);
+}
+body.air #mastodon .status__content__spoiler-link:hover {
+  background-color: white;
+}
+body.air.theme-mastodon-light #mastodon .status__content__spoiler-link {
+  color: white;
+  background-color: rgba(0,0,0,.5);
+}
+body.air.theme-mastodon-light #mastodon .status__content__spoiler-link:hover {
+  background-color: black;
 }
 body.air #mastodon .compose-form__buttons .icon-button {
   color: black;
