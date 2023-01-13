@@ -8,4 +8,4 @@ For Chrome and Edge (and Safari), root folder is 'chrome'.</b>
 
 In 'releases' folder are compressed files for downloading.
 
-https://arge.ee/mastodon-air
+https://mastodonair.com
