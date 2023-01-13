@@ -14,8 +14,11 @@ body.air #mastodon.hideAboutLinks .link-footer {
     display: none;
     visibility: hidden;
 }
+body.air #mastodon .compose-form__autosuggest-wrapper {
+    min-height: 190px;
+}
 /* Border */
-body.air #mastodon .column-header,
+.column-header,
 body.air #mastodon .button.button-tertiary,
 body.air #mastodon .button.button-tertiary:active,
 body.air #mastodon .button.button-tertiary:focus,
