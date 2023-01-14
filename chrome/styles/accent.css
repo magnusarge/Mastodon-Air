@@ -1,16 +1,16 @@
 body.air #mastodon .react-toggle--checked .react-toggle-track,
 body.air #mastodon .button {
-  background-color: #6060FF;
+  background-color: #6060ff;
 }
 body.air #mastodon .trends__item__sparkline path:last-child {
-  stroke: #6060FF;
+  stroke: #6060ff;
 }
 body.air #mastodon .trends__item__sparkline path:first-child {
-  fill: #6060FF;
+  fill: #6060ff;
 }
 body.air.theme-mastodon-light #mastodon .notification.unread::before,
 body.air.theme-mastodon-light #mastodon .status__wrapper.unread::before {
-  border-left-color: #6060FF;
+  border-left-color: #6060ff;
 }
 body.air #mastodon .radio-button__input.checked,
 body.air .language-dropdown__dropdown__results__item.active,
@@ -22,22 +22,22 @@ body.air .dropdown-menu__item button:focus,
 body.air .dropdown-menu__item button:hover,
 body.air .privacy-dropdown__option.active,
 body.air .privacy-dropdown__option:hover {
-  background: #6060FF;
+  background: #6060ff;
 }
 body.air #mastodon .poll__chart {
-  background: #6060FF;
+  background: #6060ff;
 }
 body.air #mastodon .button.disabled,
 body.air #mastodon .button:disabled {
-  background-color: #6060FF;
+  background-color: #6060ff;
 }
 body.air #mastodon .columns-area__panels__main .status__content a {
-  color: #6060FF;
+  color: #6060ff;
 }
 body.air #mastodon .compose-form__sensitive-button .checkbox,
 body.air #mastodon .compose-form__sensitive-button .checkbox.active {
-  border-color: #6060FF;
+  border-color: #6060ff;
 }
 body.air #mastodon .compose-form__sensitive-button .checkbox.active {
-  background: #6060FF;
+  background: #6060ff;
 }
