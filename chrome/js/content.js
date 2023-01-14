@@ -8,6 +8,7 @@
 let browserName = detectBrowser();
 if ( browserName == 'firefox' ) var chrome = browser;
 //let version = chrome.runtime.getManifest().version;
+let mastodonState = {};
 const isMastodon = isMastodonInstance();
 const isSignedIn = isUserSignedIn();
 // For injecting <style>
@@ -26,14 +27,26 @@ let air = {
 function isMastodonInstance() {
   const initialState = $("#initial-state");
   if ( initialState.length ) {
-      if ( initialState[0].innerHTML.includes("repository") && 
-          initialState[0].innerHTML.includes("mastodon") ) {
+
+    mastodonState = JSON.parse(initialState[0].innerHTML);
+    let repository = mastodonState.meta.repository;
+    let version = mastodonState.meta.version;
+
+    // const repositoryExists = initialState[0].innerHTML.includes("repository");
+    // const mastodonExists = initialState[0].innerHTML.includes("mastodon");
+
+    const repositoryExists = repository.length;
+    const mastodonExists = version[0] == 4; 
+
+    if ( repositoryExists && mastodonExists ) {
+          const mastodonAppBodyExists = $("body.app-body").first();
           const mastodonIdExists = $("div#mastodon").first();
-          const mastodonThemesExists = $("body.theme-contrast").first() ||
-              $("body.theme-default").first() ||
-              $("body.theme-mastodon-light").first();
-          return mastodonIdExists && mastodonThemesExists ? true : false;
-      }
+          const mastodonThemesExists =
+            $("body.theme-contrast").first() ||
+            $("body.theme-default").first() ||
+            $("body.theme-mastodon-light").first();
+        return mastodonIdExists && mastodonThemesExists && mastodonAppBodyExists ? true : false;
+    }
   }
   return false;
 }
@@ -45,11 +58,13 @@ function isUserSignedIn() {
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
   for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-    if ( key == "airEnabled" && oldValue != newValue ) {
-      startEngine();
-    }
-    if ( key == "keepWideText" && oldValue != newValue ) {
-      wideText();
+    if ( oldValue != newValue ) {
+      if ( key == "airEnabled" ) {
+        startEngine();
+      }
+      if ( key == "keepWideText" ) {
+        wideText();
+      }
     }
   }
 });
@@ -160,9 +175,9 @@ if ( isMastodon ) {
 
 function toggleStyles(id, content) {
   $(`#${id}`).remove();
-  let tags = $(`<style nonce="${nonce}" id="${id}" type="text/css"></style>`);
-  tags.text(content);
-  $("head").append(tags);
+  let el = $(`<style nonce="${nonce}" id="${id}" type="text/css"></style>`);
+  el.text(content);
+  $("head").append(el);
 }
 
 // Clean up and return to regular Mastodon
@@ -427,12 +442,14 @@ function airIsEnabled () {
   // Stored properties change listener
   chrome.storage.onChanged.addListener((changes, namespace) => {
     for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-      if ( key == "themeBg" && oldValue != newValue ) themeColor();
-      if ( key == "hideTrends" && oldValue != newValue ) checkHideTrends();
-      if ( key == "hideAboutLinks" && oldValue != newValue ) checkAboutLinks();
-      if ( key == "textColor" && oldValue != newValue ) checkTextColor();
-      if ( key == "accentColor" && oldValue != newValue ) checkAccentColor();
-      if ( key == "logoAccent" && oldValue != newValue ) checkLogoAccent();
+      if ( oldValue != newValue ) {
+        if ( key == "themeBg" ) themeColor();
+        if ( key == "hideTrends" ) checkHideTrends();
+        if ( key == "hideAboutLinks" ) checkAboutLinks();
+        if ( key == "textColor" ) checkTextColor();
+        if ( key == "accentColor" ) checkAccentColor();
+        if ( key == "logoAccent" ) checkLogoAccent();
+      }
     }
   });
 
