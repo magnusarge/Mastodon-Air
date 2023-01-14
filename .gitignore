@@ -1,4 +1,5 @@
 
 .DS_Store
 *.zip
+initial-state-sample.json
 !/releases/mastodon-air-*.zip

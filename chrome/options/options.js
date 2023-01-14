@@ -72,7 +72,6 @@ function restoreOptions() {
         if ( result.airEnabled || result.airEnabled == false ) {
             val = result.airEnabled;
         } else chrome.storage.local.set({airEnabled: val}); 
-
         $( "#airEnabled" ).prop( "checked", val );
     }
     function onError(error) {
@@ -81,7 +80,7 @@ function restoreOptions() {
 
     let gettingAirEnabled = chrome.storage.local.get("airEnabled");
     gettingAirEnabled.then(setAirEnabled, onError);
-  
+
     let gettingThemeBg = chrome.storage.local.get("themeBg");
     gettingThemeBg.then(setCurrentThemeBg, onError);
 
