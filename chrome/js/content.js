@@ -21,7 +21,8 @@ let air = {
   background: "", // Air background
   accent: "", // Air accent color
   textColor: "", // Air text color ( 'dark' || 'light' )
-  keepWideText: true // Keep textarea wide even if Air is disabled
+  keepWideText: true, // Keep textarea wide even if Air is disabled
+  wideColumns: false
 }
 
 function isMastodonInstance() {
@@ -62,9 +63,10 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
       if ( key == "airEnabled" ) {
         startEngine();
       }
-      if ( key == "keepWideText" ) {
-        wideText();
-      }
+      if ( key == "keepWideText" ) wideTextEditor();
+      if ( key == "hideTrends" ) hideTrends();
+      if ( key == "hideAboutLinks" ) hideAboutLinks();
+      if ( key == "wideColumns" ) wideColumnsOnAdvancedMode();
     }
   }
 });
@@ -81,11 +83,13 @@ function setDefaults() {
     textColor:"",
     accentColor:"",
     logoAccent:true,
-    keepWideText:true
+    keepWideText:true,
+    wideColumns:false,
+    dontChangeAccent:false
   });
   chrome.storage.local.set({airEnabled: true});
 }
-function wideText(forceRemove) {
+function wideTextEditor(forceRemove=false) {
   if ( forceRemove ) {
     $("body.app-body").removeClass("air-disabled");
     return;
@@ -103,6 +107,42 @@ function wideText(forceRemove) {
         air.keepWideText = false;
         $("body.app-body").removeClass("air-disabled");
       }
+    }
+  }
+}
+function wideColumnsOnAdvancedMode() {
+  const gettingWideColumns = chrome.storage.local.get("wideColumns");
+  gettingWideColumns.then(wideColumnsCheck, onError);
+
+  function wideColumnsCheck(item) {
+    if ( item.wideColumns ) {
+      $("#mastodon").addClass("wideColumns");
+    } else {
+      $("#mastodon").removeClass("wideColumns");
+    }
+  }
+}
+function hideTrends() {
+  const gettingHideTrends = chrome.storage.local.get("hideTrends");
+  gettingHideTrends.then(hideTrendsCheck, onError);
+
+  function hideTrendsCheck(item) {
+    if ( item.hideTrends ) {
+      $("#mastodon").addClass("hideTrends");
+    } else {
+      $("#mastodon").removeClass("hideTrends");
+    }
+  }
+}
+function hideAboutLinks() {
+  const gettingHideAboutLinks = chrome.storage.local.get("hideAboutLinks");
+  gettingHideAboutLinks.then(hideAboutLinksCheck, onError);
+
+  function hideAboutLinksCheck(item) {
+    if ( item.hideAboutLinks ) {
+      $("#mastodon").addClass("hideAboutLinks");
+    } else {
+      $("#mastodon").removeClass("hideAboutLinks");
     }
   }
 }
@@ -128,15 +168,23 @@ function startEngine() {
   }
 }
 function addOptionsLink() {
+  
   if ( !$("#airoptions").length ) { // Check if link already exists
-    let firefoxPath = browserName == 'firefox' ? "/chrome/" : "";
-    let optionsUrl = chrome.runtime.getURL(`${firefoxPath}options/options.html`);
-    let optionsLink = $(`<a id="airoptions" class="column-link column-link--transparent" title="Mastodon Air options" href="${optionsUrl}" target="_blank"><i class="fa fa-diamond column-link__icon fa-fw"></i><span>Theme options</span></a>`);
+    let optionsLink = $(`<a id="airoptions" class="column-link column-link--transparent" title="Mastodon Air options" href="airoptions" target="_blank"><i class="fa fa-diamond column-link__icon fa-fw"></i><span>Theme options</span></a>`);
     // .navigation-panel__legal must appear first
     setTimeout(function() {
       $(optionsLink).insertBefore($("body.app-body #mastodon .navigation-panel__legal").first());  
     }, 100);
   }
+  // if ( !$("#advancedairoptions").length ) { // Check if link already exists
+  //   let optionsLink = $(`<a id="advancedairoptions" class="column-link column-link--transparent" title="Mastodon Air options" href="airoptions" target="_blank"><i class="fa fa-diamond column-link__icon fa-fw"></i><span>Theme options</span></a>`);
+  //   // .navigation-panel__legal must appear first
+  //   setTimeout(function() {
+  //     $(optionsLink).insertAfter($("body.app-body.layout-multiple-columns #mastodon .columns-area").first());  
+  //   }, 100);
+  // }
+
+  //getting-started__wrapper
 }
 function logoAccentColor(accentcolor) {
     if ( accentcolor == false || air.enabled == false ) accentcolor = air.logoFill[0];
@@ -169,6 +217,9 @@ function logoTextColor(textcolor) {
 if ( isMastodon ) {
   // Add options link regardless Air is enabled or not, logged in or not.
   addOptionsLink();
+  hideTrends();
+  hideAboutLinks();
+  wideColumnsOnAdvancedMode();
 
   startEngine();
 }
@@ -184,7 +235,7 @@ function toggleStyles(id, content) {
 function airIsDisabled() {
   logoAccentColor(false);
   logoTextColor(false);
-  wideText();
+  wideTextEditor();
 
   $("body.app-body.air").css("background", "");
   $("body.app-body.air .tabs-bar__wrapper").css("background", "");
@@ -199,7 +250,7 @@ function airIsDisabled() {
 // Run Mastodon Air
 function airIsEnabled () {
 
-  wideText(true);
+  wideTextEditor(true);
   $("body.app-body").addClass("air");
   //console.log(`Signed in: ${isSignedIn}`);
   //console.log(`Browser: ${browserName}`);
@@ -231,8 +282,6 @@ function airIsEnabled () {
     checkTextColor();
     themeColor();
     checkAccentColor();
-    checkHideTrends();
-    checkAboutLinks();
 
   }
   function themeColor() {
@@ -403,32 +452,6 @@ function airIsEnabled () {
       toggleStyles("air-accent", accentStyles);
     }
   }
-  // Check if hiding Trends view is enabled. Default is false.
-  function checkHideTrends() {
-    const gettingHideTrends = chrome.storage.local.get("hideTrends");
-    gettingHideTrends.then(hideTrends, onError);
-
-    function hideTrends(item) {
-      if ( item.hideTrends ) {
-        $("#mastodon").addClass("hideTrends");
-      } else {
-        $("#mastodon").removeClass("hideTrends");
-      }
-    }
-  }
-  // Check if hiding About links is enabled. Default is false.
-  function checkAboutLinks() {
-    const gettingHideAboutLinks = chrome.storage.local.get("hideAboutLinks");
-    gettingHideAboutLinks.then(hideAboutLinks, onError);
-
-    function hideAboutLinks(item) {
-      if ( item.hideAboutLinks ) {
-        $("#mastodon").addClass("hideAboutLinks");
-      } else {
-        $("#mastodon").removeClass("hideAboutLinks");
-      }
-    }
-  }
   // Check if is allowed to change logo color. Default is true.
   function checkLogoAccent() {
     const gettingLogoAccent = chrome.storage.local.get("logoAccent");
@@ -448,8 +471,6 @@ function airIsEnabled () {
     for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
       if ( oldValue != newValue ) {
         if ( key == "themeBg" ) themeColor();
-        if ( key == "hideTrends" ) checkHideTrends();
-        if ( key == "hideAboutLinks" ) checkAboutLinks();
         if ( key == "textColor" ) checkTextColor();
         if ( key == "accentColor" ) checkAccentColor();
         if ( key == "logoAccent" ) checkLogoAccent();

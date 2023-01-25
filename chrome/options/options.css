@@ -54,9 +54,19 @@ a span:hover {
     margin: 12px auto;
 }
 
-
+.formRowTitle {
+    margin: 32px 18px 14px;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.formRowTitle span {
+    font-weight: normal;
+    font-size: .8em;
+    display: block;
+    padding-top: 4px;
+}
 .formRow {
-    margin: 24px;
+    margin: 18px;
 }
 .formRow .label {
     float: left;
@@ -64,6 +74,15 @@ a span:hover {
 }
 .formRow .option {
     margin-left: 310px;
+}
+.formRow.inline {
+    margin: 12px 0 0;
+}
+.formRow.inline .label {
+    width: 120px;
+}
+.formRow.inline .option {
+    margin-left: 130px;
 }
 .formRow .option input.wide {
     width: 100%;

@@ -67,6 +67,20 @@ function restoreOptions() {
         } else chrome.storage.local.set({hideAboutLinks: val}); 
         $( "#hideAboutLinks" ).prop( "checked", val );
     }
+    function setDontChangeAccent(result) {
+        let val = false;
+        if ( result.dontChangeAccent || result.dontChangeAccent == false ) {
+            val = result.dontChangeAccent;
+        } else chrome.storage.local.set({dontChangeAccent: val}); 
+        $( "#dontChangeAccent" ).prop( "checked", val );
+    }
+    function setWideColumns(result) {
+        let val = false;
+        if ( result.wideColumns || result.wideColumns == false ) {
+            val = result.wideColumns;
+        } else chrome.storage.local.set({wideColumns: val}); 
+        $( "#wideColumns" ).prop( "checked", val );
+    }
     function setAirEnabled(result) {
         let val = true;
         if ( result.airEnabled || result.airEnabled == false ) {
@@ -102,15 +116,23 @@ function restoreOptions() {
     let gettingKeepWideText = chrome.storage.local.get("keepWideText");
     gettingKeepWideText.then(setKeepWideText, onError);
 
+    let gettingDontChangeAccent = chrome.storage.local.get("dontChangeAccent");
+    gettingDontChangeAccent.then(setDontChangeAccent, onError);
+
+    let gettingWideColumns = chrome.storage.local.get("wideColumns");
+    gettingWideColumns.then(setWideColumns, onError);
+
 }
 
-function previewBg(bg) {
+function previewBg(bg, changeAccent) {
     $("#selectedColor").text("#"+bg.title);
     $("#preview").css("background",bg.color);
     $("body").css("background", bg.color);
     $("#preview").css("border-color",bg.accent);
     previewText($("input[name='mode']:checked").val());
-    previewAccent(themeBackgrounds[bg.accent]);
+    if ( changeAccent ) {
+        previewAccent(themeBackgrounds[bg.accent]);
+    }
 }
 function previewText(color) {
     $("#preview").removeClass("dark light");
@@ -143,13 +165,19 @@ function saveTextColor(textcolor) {
 
 
 $("#themeBg .colorContainer").click( function() {
+
     let bg = themeBackgrounds[$("input[name='themeBg']", this).val()];
     $(`#textColor input[value='${bg.text}']`).prop( "checked", true );
-    $(`#accentColor input[value='${bg.accent}']`).prop( "checked", true );
     saveTheme(bg);
-    saveAccentColor(themeBackgrounds[bg.accent]); 
+
+    let changeAccent = $("#dontChangeAccent:checked").length ? false : true;
+    if ( changeAccent ) {
+        $(`#accentColor input[value='${bg.accent}']`).prop( "checked", true );
+        saveAccentColor(themeBackgrounds[bg.accent]); 
+    }
+
     saveTextColor(bg.text);
-    previewBg(bg);
+    previewBg(bg, changeAccent);
 });
 $("#accentColor .colorContainer").click( function() {
     let accent = themeBackgrounds[$("input[name='accent']", this).val()];
@@ -187,6 +215,16 @@ $("#airEnabled").click( function() {
 $("#keepWideText").click( function() {
     chrome.storage.local.set({
         keepWideText: $("#keepWideText:checked").length ? true : false
+    });
+});
+$("#dontChangeAccent").click( function() {
+    chrome.storage.local.set({
+        dontChangeAccent: $("#dontChangeAccent:checked").length ? true : false
+    });
+});
+$("#wideColumns").click( function() {
+    chrome.storage.local.set({
+        wideColumns: $("#wideColumns:checked").length ? true : false
     });
 });
 

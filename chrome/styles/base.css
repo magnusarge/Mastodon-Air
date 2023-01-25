@@ -9,16 +9,26 @@ body.air #mastodon .button {
     padding: 12px 24px;
 }
 body.air #mastodon .navigation-panel hr,
-body.air #mastodon.hideTrends .getting-started__trends,
-body.air #mastodon.hideAboutLinks .link-footer {
+#mastodon.hideTrends .getting-started__trends,
+#mastodon.hideAboutLinks .link-footer {
     display: none;
     visibility: hidden;
+}
+
+#mastodon.wideColumns .columns-area {
+    justify-content: space-evenly;
+}
+@media screen and (min-width: 631px) {
+    #mastodon.wideColumns .column,
+    #mastodon.wideColumns .drawer {
+        flex: auto;
+    }
 }
 body.air #mastodon .compose-form__autosuggest-wrapper {
     min-height: 190px;
 }
 /* Border */
-.column-header,
+body.air #mastodon .column-header,
 body.air #mastodon .button.button-tertiary,
 body.air #mastodon .button.button-tertiary:active,
 body.air #mastodon .button.button-tertiary:focus,
@@ -369,7 +379,10 @@ body.air #mastodon .about__meta,
 body.air #mastodon .about__section__title,
 body.air #mastodon .about__domain-blocks__domain:nth-child(2n),
 body.air #mastodon .about__domain-blocks,
-body.air #mastodon .filter-form {
+body.air #mastodon .filter-form,
+body.air #mastodon .flex-spacer,
+body.air #mastodon .getting-started,
+body.air #mastodon .getting-started__wrapper {
     background: none;
 }
 body.air #mastodon .explore__search-header {

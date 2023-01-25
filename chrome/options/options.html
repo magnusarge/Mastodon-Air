@@ -41,18 +41,18 @@
 
                 <ul>
                     <li class="tab">General</li>
-                    <li class="tab">Background</li>
+                    <li class="tab">Background and text</li>
                     <li class="tab">Accent color</li>
-                    <li class="tab">Text</li>
                 </ul>
                 
             </div>
             <div class="tabContainer">
 <!-- General options -->
                 <div class="tabContent">
+                    <div class="formRowTitle">Theming</div>
                     <div class="formRow">
                         <div class="label">
-                            <label for="airEnabled">Mastodon Air is enabled</label>
+                            <label for="airEnabled">Theming is enabled</label>
                         </div>
                         <div class="option">
                             <input type="checkbox" id="airEnabled" name="airEnabled" />
@@ -64,6 +64,14 @@
                         </div>
                         <div class="option">
                             <input type="checkbox" id="logoAccent" name="logoAccent" />
+                        </div>
+                    </div>
+
+                    <div class="formRowTitle">Page elements <span>These settings are independent from theming.</span></div>
+                    <div class="formRow">
+                        <div class="label"><label for="keepWideText">Wide text editor</label></div>
+                        <div class="option">
+                            <input type="checkbox" id="keepWideText" name="keepWideText" />
                         </div>
                     </div>
                     <div class="formRow">
@@ -79,26 +87,36 @@
                         </div>
                     </div>
                     <div class="formRow">
-                        <div class="label"><label for="keepWideText">Textarea is wider even if Air is disabled</label></div>
+                        <div class="label"><label for="wideColumns">Wide columns in advanced web interface</label></div>
                         <div class="option">
-                            <input type="checkbox" id="keepWideText" name="keepWideText" />
+                            <input type="checkbox" id="wideColumns" name="wideColumns" />
                         </div>
                     </div>
                 </div>
-<!-- Background option -->
-                <div class="formRow tabContent" id="themeBg"><div class="tabNote">Changing background color will change accent and text colors according to it's default settings.</div></div>
-<!-- Accent color option -->
-                <div class="formRow tabContent" id="accentColor"><div class="tabNote">Accent color is used for buttons, links and some other elements in the page.</div></div>
-<!-- Text options -->
-                <div class="tabContent">
-                    <div class="formRow">
+<!-- Background color and text option -->
+                <div class="formRow tabContent" id="themeBgContainer">
+                    <div class="tabNote">Changing background color will change accent and text colors according to it's default settings.
+                        <div class="formRow inline">
+                            <div class="label"><label for="dontChangeAccent">Don't do that</label></div>
+                            <div class="option">
+                                <input type="checkbox" id="dontChangeAccent" name="dontChangeAccent" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="themeBg"></div>
+                    <br>
+                    <div class="formRow inline ">
                         <div class="label">Text color</div>
                         <div class="option" id="textColor">
                             <label class="modeContainer"><input type="radio" name="mode" value="dark" /><span class="modeCheck" title="Dark text">Black</span></label>
                             <label class="modeContainer"><input type="radio" name="mode" value="light" /><span class="modeCheck" title="Light text">White</span></label>
                         </div>
                     </div>
+
                 </div>
+<!-- Accent color option -->
+                <div class="formRow tabContent" id="accentColor"><div class="tabNote">Accent color is used for buttons, links and some other elements in the page.</div></div>
                 
             </div>
         </div>
