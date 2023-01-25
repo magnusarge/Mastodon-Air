@@ -170,7 +170,9 @@ function startEngine() {
 function addOptionsLink() {
   
   if ( !$("#airoptions").length ) { // Check if link already exists
-    let optionsLink = $(`<a id="airoptions" class="column-link column-link--transparent" title="Mastodon Air options" href="airoptions" target="_blank"><i class="fa fa-diamond column-link__icon fa-fw"></i><span>Theme options</span></a>`);
+    let firefoxPath = browserName == 'firefox' ? "/chrome/" : "";
+    let optionsUrl = chrome.runtime.getURL(`${firefoxPath}options/options.html`);
+    let optionsLink = $(`<a id="airoptions" class="column-link column-link--transparent" title="Mastodon Air options" href="${optionsUrl}" target="_blank"><i class="fa fa-diamond column-link__icon fa-fw"></i><span>Theme options</span></a>`);
     // .navigation-panel__legal must appear first
     setTimeout(function() {
       $(optionsLink).insertBefore($("body.app-body #mastodon .navigation-panel__legal").first());  
