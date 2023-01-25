@@ -380,15 +380,19 @@ function airIsEnabled () {
       body.air .privacy-dropdown__option.active,
       body.air .privacy-dropdown__option:hover,
       body.air #mastodon .poll__chart,
-      body.air #mastodon .compose-form__sensitive-button .checkbox.active
+      body.air #mastodon .compose-form__sensitive-button .checkbox.active,
+      body.air #mastodon .rules-list li::before,
+      body.air #mastodon .prose ul > li::before
         {background: ${accentColor.color} !important;}
       body.air #mastodon .compose-form__sensitive-button .checkbox,
       body.air #mastodon .compose-form__sensitive-button .checkbox.active
         {border-color: ${accentColor.color} !important;}
-      body.air #mastodon .columns-area__panels__main .status__content a
+      body.air #mastodon .columns-area__panels__main .status__content a,
+      body.air #mastodon .prose a
         {color: ${accentColor.color} !important;}
       body.air #mastodon .button,
-      body.air #mastodon .button.button-alternative-2
+      body.air #mastodon .button.button-alternative-2,
+      body.air #mastodon .rules-list li::before
         {color: ${accentColor.text} !important;}
       @media screen and (max-width: 889px) {
         body.air #mastodon .column-link--transparent.active {

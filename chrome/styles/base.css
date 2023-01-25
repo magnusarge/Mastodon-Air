@@ -52,7 +52,15 @@ body.air #mastodon .account,
 body.air #mastodon .getting-started .column-link,
 body.air #mastodon .scrollable .column-link,
 body.air #mastodon .column-subheading,
-body.air #mastodon .list-panel .active {
+body.air #mastodon .list-panel .active,
+body.air #mastodon .about__section__body,
+body.air #mastodon .about__meta,
+body.air #mastodon .about__section__title,
+body.air #mastodon .interaction-modal,
+body.air #mastodon .rules-list li,
+body.air #mastodon .about__domain-blocks__domain,
+body.air #mastodon .about__domain-blocks,
+body.air #mastodon .filter-form {
     border: none;
 }
 body.air #mastodon .notification__filter-bar {
@@ -356,7 +364,12 @@ body.air #mastodon .button:disabled {
 body.air #mastodon .getting-started .column-link,
 body.air #mastodon .scrollable .column-link,
 body.air #mastodon .column-subheading,
-body.air #mastodon .list-panel .active {
+body.air #mastodon .list-panel .active,
+body.air #mastodon .about__meta,
+body.air #mastodon .about__section__title,
+body.air #mastodon .about__domain-blocks__domain:nth-child(2n),
+body.air #mastodon .about__domain-blocks,
+body.air #mastodon .filter-form {
     background: none;
 }
 body.air #mastodon .explore__search-header {

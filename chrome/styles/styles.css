@@ -11,8 +11,8 @@ body.air #mastodon .status__wrapper .poll__input:hover {
   border-color: white;
 }
 body.air #mastodon .status__wrapper .poll__input.active,
-body.air #mastodon .status__wrapper .poll__input:active,
-body.air #mastodon .status__wrapper .poll__input:focus {
+body.air #mastodon .status__wrapper .poll__input.active:active,
+body.air #mastodon .status__wrapper .poll__input.active:focus {
   background: rgba(255,255,255,.8);
 }
 body.air.theme-mastodon-light #mastodon .poll__input,
@@ -22,10 +22,30 @@ body.air.theme-mastodon-light #mastodon .poll__input:hover {
   border-color: black;
 }
 body.air.theme-mastodon-light #mastodon .poll__input.active,
-body.air.theme-mastodon-light #mastodon .poll__input:active,
-body.air.theme-mastodon-light #mastodon .poll__input:focus {
+body.air.theme-mastodon-light #mastodon .poll__input.active:active,
+body.air.theme-mastodon-light #mastodon .poll__input.active:focus {
   background: rgba(0,0,0,.8);
 }
+body.air #mastodon,
+body.air #mastodon .column-title p,
+body.air #mastodon .about__domain-blocks__domain,
+body.air #mastodon .about__domain-blocks__domain h6,
+body.air #mastodon .about__footer,
+body.air #mastodon .rules-list,
+body.air #mastodon .about__section__title,
+body.air #mastodon .about__mail,
+body.air #mastodon .about__header p,
+body.air #mastodon .about__meta h4,
+body.air #mastodon .prose,
+body.air #mastodon .prose b,
+body.air #mastodon .prose h1,
+body.air #mastodon .prose h2,
+body.air #mastodon .prose h3,
+body.air #mastodon .prose h4,
+body.air #mastodon .prose h5,
+body.air #mastodon .prose h6,
+body.air #mastodon .prose strong,
+body.air #mastodon .server-banner__number,
 body.air #mastodon .load-more,
 body.air #mastodon .compose-form .compose-form__warning a,
 body.air #mastodon .server-banner__number-label,
@@ -105,9 +125,30 @@ body.air #mastodon .status-card__title,
 body.air #mastodon .detailed-status__display-name strong,
 body.air #mastodon .compose__action-bar-dropdown .icon-button,
 body.air #mastodon .account-card__title .display-name bdi,
-body.air #mastodon .column-subheading {
+body.air #mastodon .column-subheading,
+body.air #mastodon .server-banner {
     color: white;
 }
+body.air.theme-mastodon-light #mastodon,
+body.air.theme-mastodon-light #mastodon .column-title p,
+body.air.theme-mastodon-light #mastodon .about__domain-blocks__domain,
+body.air.theme-mastodon-light #mastodon .about__domain-blocks__domain h6,
+body.air.theme-mastodon-light #mastodon .about__footer,
+body.air.theme-mastodon-light #mastodon .rules-list,
+body.air.theme-mastodon-light #mastodon .about__section__title,
+body.air.theme-mastodon-light #mastodon .about__mail,
+body.air.theme-mastodon-light #mastodon .about__meta h4,
+body.air.theme-mastodon-light #mastodon .about__header p,
+body.air.theme-mastodon-light #mastodon .prose,
+body.air.theme-mastodon-light #mastodon .prose b,
+body.air.theme-mastodon-light #mastodon .prose h1,
+body.air.theme-mastodon-light #mastodon .prose h2,
+body.air.theme-mastodon-light #mastodon .prose h3,
+body.air.theme-mastodon-light #mastodon .prose h4,
+body.air.theme-mastodon-light #mastodon .prose h5,
+body.air.theme-mastodon-light #mastodon .prose h6,
+body.air.theme-mastodon-light #mastodon .prose strong,
+body.air.theme-mastodon-light #mastodon .server-banner__number,
 body.air.theme-mastodon-light #mastodon .load-more,
 body.air.theme-mastodon-light #mastodon .compose-form .compose-form__warning a,
 body.air.theme-mastodon-light #mastodon .server-banner__number-label,
@@ -174,7 +215,8 @@ body.air.theme-mastodon-light #mastodon .status-card__title,
 body.air.theme-mastodon-light #mastodon .detailed-status__display-name strong,
 body.air.theme-mastodon-light #mastodon .icon-button,
 body.air.theme-mastodon-light #mastodon .account-card__title .display-name bdi,
-body.air.theme-mastodon-light #mastodon .column-subheading {
+body.air.theme-mastodon-light #mastodon .column-subheading,
+body.air.theme-mastodon-light #mastodon .server-banner {
     color: black;
 }
 body.air #mastodon .status__content__spoiler-link {
@@ -191,7 +233,8 @@ body.air.theme-mastodon-light #mastodon .status__content__spoiler-link {
 body.air.theme-mastodon-light #mastodon .status__content__spoiler-link:hover {
   background-color: black;
 }
-body.air #mastodon .compose-form__buttons .icon-button {
+body.air #mastodon .compose-form__buttons .icon-button,
+body.air #mastodon .setting-toggle__label {
   color: black;
 }
 body.air #mastodon .icon-button:hover {

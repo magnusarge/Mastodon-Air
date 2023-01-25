@@ -31,7 +31,8 @@ body.air #mastodon .button.disabled,
 body.air #mastodon .button:disabled {
   background-color: #6060ff;
 }
-body.air #mastodon .columns-area__panels__main .status__content a {
+body.air #mastodon .columns-area__panels__main .status__content a,
+body.air #mastodon .prose a {
   color: #6060ff;
 }
 body.air #mastodon .compose-form__sensitive-button .checkbox,
