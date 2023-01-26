@@ -175,18 +175,11 @@ function addOptionsLink() {
     let optionsLink = $(`<a id="airoptions" class="column-link column-link--transparent" title="Mastodon Air options" href="${optionsUrl}" target="_blank"><i class="fa fa-diamond column-link__icon fa-fw"></i><span>Theme options</span></a>`);
     // .navigation-panel__legal must appear first
     setTimeout(function() {
-      $(optionsLink).insertBefore($("body.app-body #mastodon .navigation-panel__legal").first());  
+      $(optionsLink).insertBefore($("body.app-body #mastodon .navigation-panel__legal").first()); 
+      
+      $("body.app-body.layout-multiple-columns").first().append(optionsLink);
     }, 100);
   }
-  // if ( !$("#advancedairoptions").length ) { // Check if link already exists
-  //   let optionsLink = $(`<a id="advancedairoptions" class="column-link column-link--transparent" title="Mastodon Air options" href="airoptions" target="_blank"><i class="fa fa-diamond column-link__icon fa-fw"></i><span>Theme options</span></a>`);
-  //   // .navigation-panel__legal must appear first
-  //   setTimeout(function() {
-  //     $(optionsLink).insertAfter($("body.app-body.layout-multiple-columns #mastodon .columns-area").first());  
-  //   }, 100);
-  // }
-
-  //getting-started__wrapper
 }
 function logoAccentColor(accentcolor) {
     if ( accentcolor == false || air.enabled == false ) accentcolor = air.logoFill[0];

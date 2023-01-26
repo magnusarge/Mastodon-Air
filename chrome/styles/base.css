@@ -1,3 +1,7 @@
+body.app-body .dropdown-menu.bottom {
+    /* Probably not needed */
+    z-index: 99999;
+}
 body.air #mastodon .ui__header__logo {
     padding: 0;
     margin: 0 32px;
@@ -9,20 +13,10 @@ body.air #mastodon .button {
     padding: 12px 24px;
 }
 body.air #mastodon .navigation-panel hr,
-#mastodon.hideTrends .getting-started__trends,
-#mastodon.hideAboutLinks .link-footer {
+body.app-body #mastodon.hideTrends .getting-started__trends,
+body.app-body #mastodon.hideAboutLinks .link-footer {
     display: none;
     visibility: hidden;
-}
-
-#mastodon.wideColumns .columns-area {
-    justify-content: space-evenly;
-}
-@media screen and (min-width: 631px) {
-    #mastodon.wideColumns .column,
-    #mastodon.wideColumns .drawer {
-        flex: auto;
-    }
 }
 body.air #mastodon .compose-form__autosuggest-wrapper {
     min-height: 190px;

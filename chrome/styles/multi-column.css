@@ -14,4 +14,18 @@ body.air.layout-multiple-columns #mastodon .drawer__header,
 body.air.layout-multiple-columns #mastodon .drawer__inner__mastodon {
     background: none !important;
 }
+body.app-body.layout-multiple-columns #mastodon.wideColumns .columns-area {
+    justify-content: space-evenly;
+}
+body.app-body.layout-multiple-columns #mastodon.wideColumns .drawer {
+    min-width: 285px;
+    max-width: 500px;
+}
+@media screen and (min-width: 631px) {
+    body.app-body.layout-multiple-columns #mastodon.wideColumns .column,
+    body.app-body.layout-multiple-columns #mastodon.wideColumns .drawer {
+        flex: auto;
+    }
+}
+/* @media screen and (max-width: 1174px) */
 
