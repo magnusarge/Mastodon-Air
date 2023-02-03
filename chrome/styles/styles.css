@@ -27,6 +27,7 @@ body.air.theme-mastodon-light #mastodon .poll__input.active:focus {
   background: rgba(0,0,0,.8);
 }
 body.air #mastodon,
+body.air #mastodon .timeline-hint,
 body.air #mastodon .column-title p,
 body.air #mastodon .about__domain-blocks__domain,
 body.air #mastodon .about__domain-blocks__domain h6,
@@ -130,6 +131,7 @@ body.air #mastodon .server-banner {
     color: white;
 }
 body.air.theme-mastodon-light #mastodon,
+body.air.theme-mastodon-light #mastodon .timeline-hint,
 body.air.theme-mastodon-light #mastodon .column-title p,
 body.air.theme-mastodon-light #mastodon .about__domain-blocks__domain,
 body.air.theme-mastodon-light #mastodon .about__domain-blocks__domain h6,

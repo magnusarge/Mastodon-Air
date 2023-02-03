@@ -432,7 +432,8 @@ function airIsEnabled () {
       body.air #mastodon .compose-form__sensitive-button .checkbox.active
         {border-color: ${accentColor.color} !important;}
       body.air #mastodon .columns-area__panels__main .status__content a,
-      body.air #mastodon .prose a
+      body.air #mastodon .prose a,
+      body.air #mastodon .timeline-hint a
         {color: ${accentColor.color} !important;}
       body.air #mastodon .button,
       body.air #mastodon .button.button-alternative-2,
