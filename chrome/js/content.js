@@ -333,7 +333,8 @@ function airIsEnabled () {
       let themeBackground = `
       body.app-body.air,
       body.app-body.air .tabs-bar__wrapper,
-      body.app-body.air .ui__header {
+      body.app-body.air .ui__header,
+      body.app-body.air .interaction-modal {
         background: ${color} !important;
       }
       `;
@@ -433,7 +434,8 @@ function airIsEnabled () {
         {border-color: ${accentColor.color} !important;}
       body.air #mastodon .columns-area__panels__main .status__content a,
       body.air #mastodon .prose a,
-      body.air #mastodon .timeline-hint a
+      body.air #mastodon .timeline-hint a,
+      body.air #mastodon .interaction-modal__icon
         {color: ${accentColor.color} !important;}
       body.air #mastodon .button,
       body.air #mastodon .button.button-alternative-2,
