@@ -9,3 +9,8 @@ For Chrome and Edge (and Safari), root folder is 'chrome'.</b>
 In 'releases' folder are compressed files for downloading.
 
 https://mastodonair.com
+
+<img width="1385" alt="Screenshot 2023-02-26 at 16 29 07" src="https://user-images.githubusercontent.com/110186971/221416727-4f00e23a-9b67-44de-8b71-49236003f9ed.png">
+
+<img width="1385" alt="Screenshot 2023-02-26 at 16 29 41" src="https://user-images.githubusercontent.com/110186971/221416752-0a61978a-769a-49bc-897d-02047a9d17d7.png">
+
