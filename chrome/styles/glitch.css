@@ -1,7 +1,15 @@
-body.air #mastodon .columns-area__panels__main {
+body.air.flavour-glitch #mastodon .columns-area__panels__main {
     max-width: 600px !important;
 }
 
-body.air #mastodon button.icon-button.active svg.icon-retweet {
+body.air.flavour-glitch #mastodon button.icon-button.active svg.icon-retweet {
   color: #00c277;
+}
+
+body.air.flavour-glitch #mastodon .navigation-panel {
+  margin-top: 2em;
+}
+
+body.air.flavour-glitch #mastodon .ui__header__links {
+  margin-right: 140px;
 }

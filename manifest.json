@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Mastodon Air",
   "description": "Mastodon clean theme.",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "icons": {
       "16": "chrome/images/icon16.png",
       "32": "chrome/images/icon32.png",
