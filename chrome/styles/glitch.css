@@ -1,0 +1,7 @@
+body.air #mastodon .columns-area__panels__main {
+    max-width: 600px !important;
+}
+
+body.air #mastodon button.icon-button.active svg.icon-retweet {
+  color: #00c277;
+}
