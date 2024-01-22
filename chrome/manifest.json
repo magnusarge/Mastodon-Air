@@ -15,7 +15,7 @@
   "content_scripts": [
     {
       "matches": ["https://*/*"],
-      "css": ["chrome/styles/glitch.css",
+      "css": ["styles/glitch.css",
               "styles/air-disabled.css",
               "styles/styles.css",
               "styles/base.css",
